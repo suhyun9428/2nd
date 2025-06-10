@@ -3,18 +3,22 @@
 * {
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   text-align: center;
 }
+
 .box__second-terms {
   .box__navigation {
     display: flex;
     height: 50px;
     gap: 5px;
     padding: 16px 20px;
+
     .link__navi {
       flex: 1;
       font-size: 16px;
@@ -31,6 +35,7 @@
   margin: 0 auto;
   padding: 20px 0 30px;
   border-bottom: 1px solid #eee;
+
   .swiper.list__category {
     max-width: 1136px;
     margin: 0 auto;
@@ -40,14 +45,17 @@
       max-width: 1136px;
       overflow: hidden;
     }
+
     .list-item {
       width: auto;
       margin-right: 21px;
+
       .link__category {
         display: block;
         width: 68px;
         text-align: center;
         text-decoration: none;
+
         .box__image {
           display: block;
           position: relative;
@@ -55,12 +63,14 @@
           height: 68px;
           border-radius: 50%;
           overflow: hidden;
+
           .image {
             width: 100%;
             height: 100%;
             object-fit: cover;
           }
         }
+
         .text__title {
           display: block;
           margin-top: 12px;
@@ -72,6 +82,7 @@
       }
     }
   }
+
   .swiper-button-prev {
     background-image: url(https://script.gmarket.co.kr/starro/desktop/images/sprite/best/sprite.svg#icon__swiper-arrow);
     background-size: 100% 100%;
@@ -82,10 +93,12 @@
     left: -32px;
     right: auto;
     transform: rotate(180deg);
+
     &::after {
       content: none;
     }
   }
+
   .swiper-button-next {
     background-image: url(https://script.gmarket.co.kr/starro/desktop/images/sprite/best/sprite.svg#icon__swiper-arrow);
     background-size: 100% 100%;
@@ -94,8 +107,63 @@
     margin-top: 0;
     top: 38px;
     right: 32px;
+
     &::after {
       content: none;
+    }
+  }
+}
+
+.box__items-wrap {
+  min-width: 1200px;
+  margin: 102px auto 0;
+
+  .list__items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1132px;
+    margin: 0 auto;
+
+    .list-item {
+      width: 180px;
+      margin-bottom: 30px;
+      margin-right: 58px;
+      list-style: none;
+
+      .link__item {
+        display: block;
+
+        .box__image {
+          position: relative;
+          width: 180px;
+          height: 180px;
+          border-radius: 8px;
+          overflow: hidden;
+
+          .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+        }
+
+        .box__info {
+          margin-top: 12px;
+
+          .text__title {
+            max-height: 44px;
+            color: var(--Gray-900);
+            text-overflow: ellipsis;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            font-size: 15px;
+            line-height: 22px;
+            display: -webkit-box;
+            overflow: hidden;
+          }
+        }
+      }
     }
   }
 }

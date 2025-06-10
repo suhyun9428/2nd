@@ -6,7 +6,7 @@ const Best = () => {
   return (
     <div>
       <Category data={dummyData.categoryData} />
-      <ItemCard />
+      <ItemCard data={dummyData.items}/>
     </div>
   );
 };
