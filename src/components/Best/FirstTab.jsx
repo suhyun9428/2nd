@@ -19,7 +19,11 @@ const FirstTab = ({ data }) => {
               // ${selected && "list-item--active"}`
               className="list-item"
             >
-              <a href="#" className="link__category" aria-selected={true}>
+              <a
+                href="#"
+                className="link__category"
+                // aria-selected={true}
+              >
                 <div className="box__image">
                   <img src={categoryImage} className="image" />
                 </div>

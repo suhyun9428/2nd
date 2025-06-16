@@ -1,0 +1,108 @@
+/* best */
+.box__category-swiper {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0 30px;
+  border-bottom: 1px solid #eee;
+
+  .swiper.list__category {
+    max-width: 1136px;
+    margin: 0 auto;
+    overflow: visible;
+
+    .swiper-wrapper {
+      max-width: 1136px;
+      overflow: hidden;
+    }
+
+    .list-item {
+      width: auto;
+      margin-right: 21px;
+
+      .link__category {
+        display: block;
+        width: 68px;
+        text-align: center;
+        text-decoration: none;
+
+        .box__image {
+          display: block;
+          position: relative;
+          width: 68px;
+          height: 68px;
+          border-radius: 50%;
+          overflow: hidden;
+
+          .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+
+        .text__title {
+          display: block;
+          margin-top: 12px;
+          font-size: 14px;
+          color: var(--Gray-600);
+          line-height: 20px;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+  .swiper-button-prev {
+    background-image: url(https://script.gmarket.co.kr/starro/desktop/images/sprite/best/sprite.svg#icon__swiper-arrow);
+    background-size: 100% 100%;
+    width: 32px;
+    height: 32px;
+    margin-top: 0;
+    top: 38px;
+    left: -32px;
+    right: auto;
+    transform: rotate(180deg);
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .swiper-button-next {
+    background-image: url(https://script.gmarket.co.kr/starro/desktop/images/sprite/best/sprite.svg#icon__swiper-arrow);
+    background-size: 100% 100%;
+    width: 32px;
+    height: 32px;
+    margin-top: 0;
+    top: 38px;
+    right: 32px;
+
+    &::after {
+      content: none;
+    }
+  }
+}
+
+.box__items-wrap {
+  min-width: 1200px;
+  margin: 102px auto 0;
+
+  .list__items {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1132px;
+    margin: 0 auto;
+    gap: 50px;
+
+    .list-item {
+      width: 180px;
+      margin-bottom: 30px;
+      list-style: none;
+
+      .link__item {
+        display: block;
+      }
+    }
+  }
+}

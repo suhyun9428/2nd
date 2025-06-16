@@ -1,0 +1,39 @@
+.box__content-emart {
+  .box__title {
+    position: relative;
+    .text__title {
+      font-family: var(--gmarketFont);
+      font-size: 28px;
+      line-height: 32px;
+      color: #222;
+      text-align: center;
+    }
+    .link__all {
+      position: absolute;
+      bottom: 32px;
+      right: 0;
+      font-size: 15px;
+      line-height: 22px;
+      color: #777;
+      letter-spacing: -0.5px;
+    }
+  }
+  .button__category {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    height: 40px;
+    padding: 0 17px;
+    margin: 0 2px;
+    font-size: 16px;
+    line-height: 37px;
+    color: #2c2c2c;
+    border: 1px solid #e0e0e0;
+    border-radius: 35px;
+    background: #fff;
+    box-sizing: border-box;
+    height: 48px;
+    margin: 0 4px;
+    padding: 0 23px;
+  }
+}

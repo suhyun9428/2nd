@@ -1,0 +1,196 @@
+.box__image {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .text__rank {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    padding: 8px 0;
+    border-radius: 8px 0;
+    background: var(--Green-500);
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #fff;
+    line-height: 16px;
+  }
+}
+
+.box__info {
+  margin-top: 12px;
+  .text__title {
+    max-height: 44px;
+    margin-bottom: 4px;
+    font-size: 15px;
+    color: var(--Gray-900);
+    line-height: 22px;
+    text-align: left;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .box__price {
+    text-align: left;
+    .box__coupon-discount {
+      margin-bottom: 2px;
+      line-height: 1;
+      .text__coupon {
+        display: inline-block;
+        font-size: 12px;
+        color: var(--Red-600);
+        line-height: 16px;
+        vertical-align: top;
+      }
+      .text__coupon-price {
+        display: inline-block;
+        margin-left: 2px;
+        font-size: 12px;
+        font-family: var(--gmarketFont);
+        color: var(--Gray-500);
+        line-height: 16px;
+        vertical-align: top;
+        .text__value {
+          text-decoration: line-through;
+        }
+        .text__unit {
+          font-family: var(--Font);
+        }
+      }
+    }
+    .box__discount {
+      font-size: 0;
+      .text__discout-precent {
+        display: inline-block;
+        margin-right: 4px;
+        font-size: 12px;
+        font-weight: normal;
+        font-family: var(--gmarketFont);
+        color: var(--Red-600);
+        line-height: 16px;
+        vertical-align: top;
+      }
+      .text__discount-price {
+        font-size: 0;
+        .text__original-price {
+          display: inline-block;
+          font-size: 12px;
+          font-weight: normal;
+          font-family: var(--gmarketFont);
+          color: var(--Gray-500);
+          line-height: 16px;
+          vertical-align: top;
+          text-decoration-line: line-through;
+        }
+        .text__unit {
+          display: inline-block;
+          font-size: 11px;
+          font-weight: normal;
+          font-family: var(--Font);
+          color: var(--Gray-500);
+          line-height: 14px;
+          vertical-align: top;
+        }
+      }
+    }
+    .box__selling-price {
+      display: inline-block;
+      margin-right: 4px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--Gray-800);
+      line-height: 22px;
+      vertical-align: top;
+      .text__selling-price {
+        font-family: var(--gmarketFont);
+      }
+      .text__unit {
+        font-size: 16px;
+      }
+    }
+    &:has(.box__coupon-discount) {
+      .box__discount {
+        .text__discout-precent {
+          font-size: 18px;
+          font-weight: bold;
+          line-height: 22px;
+        }
+        .text__discount-price {
+          .text__original-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--Red-600);
+            line-height: 22px;
+            text-decoration-line: none;
+          }
+          .text__unit {
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--Red-600);
+            line-height: 20px;
+            vertical-align: 1px;
+          }
+        }
+      }
+    }
+  }
+  .list__lmo {
+    margin-top: 12px;
+    white-space: nowrap;
+    list-style: none;
+    font-size: 0;
+    text-align: left;
+    .list-item__lmo {
+      display: inline-block;
+      position: relative;
+      line-height: 1;
+      vertical-align: top;
+      .image {
+        display: inline-block;
+        height: 16px;
+        vertical-align: top;
+      }
+      .text {
+        margin-left: 2px;
+        display: inline-block;
+        font-size: 13px;
+        line-height: 16px;
+        color: var(--Gray-600);
+        font-weight: normal;
+        vertical-align: top;
+      }
+      .text__star {
+        color: var(--Gray-900);
+      }
+      .text__number {
+        margin-left: 2px;
+      }
+      & + .list-item__lmo {
+        padding-left: 8px;
+        &::before {
+          content: "";
+          position: absolute;
+          top: 7px;
+          left: 4px;
+          content: "";
+          display: inline-block;
+          width: 2px;
+          height: 2px;
+          border-radius: 50%;
+          background-color: var(--Gray-400);
+        }
+      }
+    }
+  }
+}

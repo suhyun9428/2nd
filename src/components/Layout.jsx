@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 const Layout = () => {
-  const weeks = [1, 2, 3];
+  const weeks = ["베스트", "이마트", "3주차"];
   return (
     <div className="box__second-terms">
       <nav className="box__navigation">
@@ -9,7 +9,7 @@ const Layout = () => {
           return (
             <NavLink
               key={idx}
-              to={`${week}`}
+              to={week}
               className={({ isActive, isPending, isTransitioning }) =>
                 "link__navi " +
                 (isPending
@@ -21,7 +21,7 @@ const Layout = () => {
                       : "")
               }
             >
-              {week}주차
+              {week}
             </NavLink>
           );
         })}

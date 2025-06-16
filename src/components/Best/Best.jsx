@@ -1,12 +1,12 @@
 import dummyData from "./dummyData/dummyData";
 import Category from "./Category";
-import ItemCard from "./ItemCard";
+import ItemCardList from "./ItemCardList";
 
 const Best = () => {
   return (
     <div>
       <Category data={dummyData.categoryData} />
-      <ItemCard data={dummyData.items}/>
+      <ItemCardList data={dummyData.items} />
     </div>
   );
 };
