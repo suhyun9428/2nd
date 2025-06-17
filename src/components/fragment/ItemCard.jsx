@@ -5,7 +5,6 @@ import { useState } from "react";
 const ItemCard = ({ data }) => {
   const [favorite, setFavorite] = useState(false);
   const handleFavotire = () => {
-    console.log("like!");
     setFavorite(!favorite);
   };
   return (
@@ -69,7 +68,7 @@ const ItemCard = ({ data }) => {
                 <div className="box__selling-price">
                   {data.isEmart ? (
                     <span className="text__selling-price">
-                      {data.itemPrice}
+                      {data.itemPrice.toLocaleString()}
                     </span>
                   ) : (
                     <span className="text__selling-price">
@@ -90,18 +89,22 @@ const ItemCard = ({ data }) => {
                   </span>
                 </div>
                 <div className="box__selling-price">
-                  <span className="text__selling-price">
-                    {data.sellPrice || data.itemPrice}
-                  </span>
-                  <span className="text__unit">원</span>
+                  {data.isEmart ? <span className="text__selling-price">
+                    {data.sellPrice}
+                  </span> : <span className="text__selling-price">
+                    {data.itemPrice}
+                  </span>}
+                  <span className="text__unit">원??</span>
                 </div>
               </>
             ) : (
               <div className="box__selling-price">
-                <span className="text__selling-price">
-                  {data.sellPrice || data.itemPrice}
-                </span>
-                <span className="text__unit">원</span>
+                {data.isEmart ? <span className="text__selling-price">
+                  {data.sellPrice.toLocaleString()}
+                </span> : <span className="text__selling-price">
+                  {data.itemPrice}
+                </span>}
+                <span className="text__unit">원?</span>
               </div>
             )}
           </div>
