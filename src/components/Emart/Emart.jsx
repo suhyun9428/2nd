@@ -8,7 +8,8 @@ const Emart = () => {
       <div className="box__title">
         <h2 className="text__title">{dummyData.title.text}</h2>
         <a href={dummyData.title.shortcutLandingUrl} className="link__all">
-          {dummyData.title.shortcutText}
+          <span className="text">{dummyData.title.shortcutText}</span>
+          <img src="../../public/image__all.png" className="image" />
         </a>
       </div>
       <TabContent data={dummyData.sdBrandItemCatalogs} />

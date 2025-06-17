@@ -5,7 +5,11 @@ const ItemCardList = ({ data }) => {
     <div className="box__items-wrap">
       <ul className="list__items">
         {data.map((item, idx) => {
-          return <ItemCard data={item} key={idx} />;
+          return (
+            <li className="list-item" key={idx}>
+              <ItemCard data={item} />
+            </li>
+          );
         })}
       </ul>
     </div>

@@ -1,18 +1,15 @@
 import Tabs from "./Tabs";
-import ItemCardWrap from "./ItemCardWrap";
-import { Fragment } from "react/jsx-runtime";
+import Contents from "./Contents";
+import { useAtom } from "jotai";
+import { activeTabIndex } from "./atom/atom";
 
 const TabContent = ({ data }) => {
+  const [active, setActive] = useAtom(activeTabIndex);
   return (
     <>
       <Tabs data={data} />
-      {data.map((cate, idx) => {
-        return (
-          <Fragment key={idx}>
-            <ItemCardWrap data={cate.items} />
-            <a href={cate.sdBrandPageUrl}>{cate.sdBrandName} 전체보기</a>
-          </Fragment>
-        );
+      {data.map((item, idx) => {
+        return idx === active && <Contents data={item} key={idx} />;
       })}
     </>
   );

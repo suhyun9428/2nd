@@ -1,0 +1,45 @@
+.box__add-counter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  .box__counter-inner {
+    display: inline-block;
+    vertical-align: top;
+    .button__counter {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid #e0e0e0;
+      vertical-align: top;
+      cursor: pointer;
+      &.button__minus {
+        background: url(../../public/image__minus.png) no-repeat center / 18px;
+      }
+      &.button__plus {
+        background: url(../../public/image__plus.png) no-repeat center / 18px;
+      }
+    }
+    .text__counter {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      vertical-align: top;
+    }
+  }
+  .button__cart {
+    display: inline-block;
+    width: 60px;
+    height: 32px;
+    padding: 0 9px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    background: #ffd200 url(../../public/image__cart.png) no-repeat center /
+      24px;
+    font-size: 0;
+    box-sizing: border-box;
+    vertical-align: top;
+    cursor: pointer;
+  }
+}

@@ -1,4 +1,8 @@
+@import "./addcounter.css";
+
 .box__content-emart {
+  max-width: 1200px;
+  padding: 50px 0;
   .box__title {
     position: relative;
     .text__title {
@@ -10,30 +14,103 @@
     }
     .link__all {
       position: absolute;
-      bottom: 32px;
+      top: 72px;
       right: 0;
+      width: auto;
+      height: auto;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
       font-size: 15px;
       line-height: 22px;
       color: #777;
       letter-spacing: -0.5px;
+      .image {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        vertical-align: top;
+        margin: 2px 0 0 7px;
+      }
     }
   }
-  .button__category {
-    position: relative;
-    overflow: hidden;
+  .box__category-wrap {
+    margin: 16px 0 32px;
+    .button__category {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      font-size: 16px;
+      border: 1px solid #e0e0e0;
+      border-radius: 35px;
+      background: #fff;
+      box-sizing: border-box;
+      height: 48px;
+      margin: 0 4px;
+      padding: 0 23px;
+      cursor: pointer;
+      .image__logo {
+        height: 24px;
+        vertical-align: middle;
+      }
+      &.button__category--active {
+        background: #00c400;
+      }
+    }
+  }
+  .box__itemcard-wrapper {
+    width: 1220px;
+    .swiper-wrapper {
+      .list-item {
+        width: 224px !important;
+        padding: 0 10px;
+        .box__image {
+          width: 224px;
+          height: 224px;
+          .text__label {
+            width: auto;
+            border-radius: 8px 0 6px 0;
+            padding: 0 8px;
+            line-height: 32px;
+          }
+        }
+        .box__info {
+          padding: 0 7px;
+          .text__title {
+            width: calc(100% - 20px);
+          }
+        }
+        .button__favorite {
+          position: absolute;
+          right: 12px;
+          top: 280px;
+          width: 24px;
+          height: 24px;
+          border: 0;
+          background: url(../../public/image__favorite.png) no-repeat
+            center/24px 24px;
+          z-index: 1;
+          cursor: pointer;
+          &.button__favorite--active {
+            background: url(../../public/image__favorite--active.png) no-repeat
+              center/ 24px 24px;
+          }
+        }
+      }
+    }
+  }
+  .link__all {
     display: inline-block;
-    height: 40px;
-    padding: 0 17px;
-    margin: 0 2px;
-    font-size: 16px;
-    line-height: 37px;
-    color: #2c2c2c;
-    border: 1px solid #e0e0e0;
+    width: 352px;
+    height: 52px;
+    margin: 50px 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 35px;
-    background: #fff;
-    box-sizing: border-box;
-    height: 48px;
-    margin: 0 4px;
-    padding: 0 23px;
+    background: #fafafa;
+    font-size: 16px;
+    color: #757575;
+    line-height: 52px;
+    vertical-align: top;
   }
 }

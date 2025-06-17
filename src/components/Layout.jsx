@@ -1,7 +1,20 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 const Layout = () => {
-  const weeks = ["베스트", "이마트", "3주차"];
+  const weeks = [
+    {
+      text: "베스트",
+      path: "1",
+    },
+    {
+      text: "이마트",
+      path: "2",
+    },
+    {
+      text: "3주차",
+      path: "3",
+    },
+  ];
   return (
     <div className="box__second-terms">
       <nav className="box__navigation">
@@ -9,7 +22,7 @@ const Layout = () => {
           return (
             <NavLink
               key={idx}
-              to={week}
+              to={week.path}
               className={({ isActive, isPending, isTransitioning }) =>
                 "link__navi " +
                 (isPending
@@ -21,7 +34,7 @@ const Layout = () => {
                       : "")
               }
             >
-              {week}
+              {week.text}
             </NavLink>
           );
         })}
