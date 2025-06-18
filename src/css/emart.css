@@ -106,14 +106,14 @@
             width: 24px;
             height: 24px;
             border: 0;
-            background: url(../../public/image__favorite.png) no-repeat
-              center/24px 24px;
+            background: url(../../image__favorite.png) no-repeat center/24px
+              24px;
             z-index: 1;
             cursor: pointer;
 
             &.button__favorite--active {
-              background: url(../../public/image__favorite--active.png)
-                no-repeat center/ 24px 24px;
+              background: url(../../image__favorite--active.png) no-repeat
+                center/ 24px 24px;
             }
           }
         }
@@ -133,21 +133,21 @@
       &.button__swiper-next {
         left: auto;
         right: 21px;
-        background: url(../../public/image__arrow-right.png) no-repeat center /
-          42px 42px;
+        background: url(../../image__arrow-right.png) no-repeat center / 42px
+          42px;
 
         &:hover {
-          background: url(../../public/image__arrow-right--active.png) no-repeat
+          background: url(../../image__arrow-right--active.png) no-repeat
             center / 42px 42px;
         }
       }
 
       &.button__swiper-prev {
-        background: url(../../public/image__arrow-left.png) no-repeat center /
-          42px 42px;
+        background: url(../../image__arrow-left.png) no-repeat center / 42px
+          42px;
 
         &:hover {
-          background: url(../../public/image__arrow-left--active.png) no-repeat
+          background: url(../../image__arrow-left--active.png) no-repeat
             center / 42px 42px;
         }
       }

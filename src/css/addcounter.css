@@ -14,10 +14,10 @@
       vertical-align: top;
       cursor: pointer;
       &.button__minus {
-        background: url(../../public/image__minus.png) no-repeat center / 18px;
+        background: url(../../image__minus.png) no-repeat center / 18px;
       }
       &.button__plus {
-        background: url(../../public/image__plus.png) no-repeat center / 18px;
+        background: url(../../image__plus.png) no-repeat center / 18px;
       }
     }
     .text__counter {
@@ -35,8 +35,7 @@
     padding: 0 9px;
     border: 1px solid rgba(0, 0, 0, 0.04);
     border-radius: 20px;
-    background: #ffd200 url(../../public/image__cart.png) no-repeat center /
-      24px;
+    background: #ffd200 url(../../image__cart.png) no-repeat center / 24px;
     font-size: 0;
     box-sizing: border-box;
     vertical-align: top;
