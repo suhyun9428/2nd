@@ -89,21 +89,27 @@ const ItemCard = ({ data }) => {
                   </span>
                 </div>
                 <div className="box__selling-price">
-                  {data.isEmart ? <span className="text__selling-price">
-                    {data.sellPrice}
-                  </span> : <span className="text__selling-price">
-                    {data.itemPrice}
-                  </span>}
+                  {data.isEmart ? (
+                    <span className="text__selling-price">
+                      {data.sellPrice}
+                    </span>
+                  ) : (
+                    <span className="text__selling-price">
+                      {data.itemPrice}
+                    </span>
+                  )}
                   <span className="text__unit">원??</span>
                 </div>
               </>
             ) : (
               <div className="box__selling-price">
-                {data.isEmart ? <span className="text__selling-price">
-                  {data.sellPrice.toLocaleString()}
-                </span> : <span className="text__selling-price">
-                  {data.itemPrice}
-                </span>}
+                {data.isEmart ? (
+                  <span className="text__selling-price">
+                    {data.sellPrice.toLocaleString()}
+                  </span>
+                ) : (
+                  <span className="text__selling-price">{data.itemPrice}</span>
+                )}
                 <span className="text__unit">원?</span>
               </div>
             )}
@@ -114,7 +120,7 @@ const ItemCard = ({ data }) => {
                 <li className="list-item__lmo">
                   <img
                     className="image"
-                    src="../../../public/image__starrate.png"
+                    src="../image__starrate.png"
                     alt="평점"
                   />
                   <span className="text text__star">
