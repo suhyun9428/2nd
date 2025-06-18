@@ -2,6 +2,7 @@ import Tabs from "./Tabs";
 import Contents from "./Contents";
 import { useAtom } from "jotai";
 import { activeTabIndex } from "./atom/atom";
+import Layer from "../fragment/Layer";
 
 const TabContent = ({ data }) => {
   const [active, setActive] = useAtom(activeTabIndex);
@@ -11,6 +12,7 @@ const TabContent = ({ data }) => {
       {data.map((item, idx) => {
         return idx === active && <Contents data={item} key={idx} />;
       })}
+      <Layer />
     </>
   );
 };
