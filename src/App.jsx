@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Best from "./components/Best/Best";
 import Emart from "./components/Emart/Emart";
-import Week3 from "./components/Week3/Week3";
+import Contract from "./components/Contract/Contract";
 import "./App.css";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <Route index element={<Navigate to="2" replace />} />
         <Route path="1" element={<Best />} />
         <Route path="2" element={<Emart />} />
-        <Route path="3" element={<Week3 />} />
+        <Route path="3" element={<Contract />} />
       </Route>
       <Route path="/" element={<Navigate to="week" replace />} />
     </Routes>

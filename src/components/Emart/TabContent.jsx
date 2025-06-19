@@ -6,11 +6,12 @@ import Layer from "../fragment/Layer";
 
 const TabContent = ({ data }) => {
   const [active, setActive] = useAtom(activeTabIndex);
+  const activeItem = data[active];
   return (
     <>
       <Tabs data={data} />
       {data.map((item, idx) => {
-        return idx === active && <Contents data={item} key={idx} />;
+        return activeItem && <Contents data={item} key={idx} />;
       })}
       <Layer />
     </>

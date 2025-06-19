@@ -2,6 +2,8 @@
 @import "./layer.css";
 
 .box__content-emart {
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 50px 0;
 
   .box__title {
