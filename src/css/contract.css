@@ -1,8 +1,10 @@
 .box__contents-contract {
   .box__agreement-wrap {
     max-width: 768px;
+    height: 100vh;
     margin: 0 auto;
     padding: 24px 20px;
+    background-color: var(--white);
     .text__title {
       margin-bottom: 16px;
       font-size: 18px;
@@ -72,10 +74,16 @@
           transform: rotate(180deg);
           vertical-align: top;
         }
+        &[aria-expanded="true"] {
+          &::after {
+            margin-top: 3px;
+            transform: rotate(0deg);
+          }
+        }
       }
     }
     .list__detail {
-      /* display: none; */
+      display: none;
       list-style: none;
       margin-top: 8px;
       padding: 16px;
@@ -90,6 +98,22 @@
           padding-top: 8px;
         }
       }
+      &.list__detail--active {
+        display: block;
+      }
+    }
+  }
+}
+.js-fixed {
+  .box__second-terms {
+    .box__navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .box__contents-contract {
+      padding-top: 50px;
     }
   }
 }
