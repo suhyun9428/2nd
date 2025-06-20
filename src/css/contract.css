@@ -104,16 +104,3 @@
     }
   }
 }
-.js-fixed {
-  .box__second-terms {
-    .box__navigation {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
-    .box__contents-contract {
-      padding-top: 50px;
-    }
-  }
-}

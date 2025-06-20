@@ -45,3 +45,18 @@
   overflow: hidden;
   text-indent: -5000em;
 }
+.js-fixed {
+  .box__second-terms {
+    .box__navigation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+    .contents-best,
+    .box__content-emart,
+    .box__contents-contract {
+      padding-top: 50px;
+    }
+  }
+}
