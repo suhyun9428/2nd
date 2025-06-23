@@ -9,7 +9,7 @@ function App() {
   return (
     <Routes>
       <Route path="/week" element={<Layout />}>
-        <Route index element={<Navigate to="2" replace />} />
+        <Route index element={<Navigate to="3" replace />} />
         <Route path="1" element={<Best />} />
         <Route path="2" element={<Emart />} />
         <Route path="3" element={<Contract />} />

@@ -4,24 +4,29 @@ import { useState } from "react";
 import classNames from "classnames";
 const Agreement = () => {
   const [open, isOpen] = useState({});
-  const [checked, setChecked] = useState([]);
-  const allCheck = (e) => {
-    if (e.target.checked) {
-      console.log("all!");
-      // setChecked()
-    }
+  const [checked, setChecked] = useState(
+    new Array(dummyData.terms.length).fill(false)
+  );
+  const handleCheck = (e, idx) => {
+    const newSetChecked = [...checked];
+    newSetChecked[idx] = e.target.checked;
+    setChecked(newSetChecked);
+    // !!!! 복사해서 사용하지 않으면 리액트는 상태 변화를 감지하지 못함;;;;
   };
-  // console.log(isOpen, open, "????");
-  // const handleChecked = (checked) => {
-  //   console.log(checked);
-  // };
   const handleOpen = (idx) => {
     isOpen((prev) => ({
       ...prev,
       [idx]: !prev[idx],
     }));
-    console.log(isOpen, "?isOpen", open);
   };
+  const handleAllCheck = (e) => {
+    if (e.target.checked) {
+      setChecked(new Array(dummyData.terms.length).fill(true));
+    } else {
+      setChecked(new Array(dummyData.terms.length).fill(false));
+    }
+  };
+  const isAllChecked = checked.every((e) => e === true);
   return (
     <div className="box__agreement-wrap">
       <h1 className="text__title">{dummyData.title}</h1>
@@ -32,8 +37,9 @@ const Agreement = () => {
               type="checkbox"
               className="form__checkbox"
               id="allCheck"
-              // aria-checked={handleChecked}
-              onChange={allCheck}
+              checked={isAllChecked}
+              aria-checked={isAllChecked}
+              onChange={handleAllCheck}
             />
             <span className="text text__emphasis">전체 동의</span>
           </label>
@@ -48,6 +54,9 @@ const Agreement = () => {
                       type="checkbox"
                       className="form__checkbox"
                       id={`check${idx}`}
+                      onChange={(e) => handleCheck(e, idx)}
+                      checked={checked[idx]}
+                      aria-checked={checked[idx]}
                     />
                     <span className="text">{item.title}</span>
                   </label>
