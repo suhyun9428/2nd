@@ -11,7 +11,7 @@ const Layout = () => {
       path: "2",
     },
     {
-      text: "3주차",
+      text: "약관",
       path: "3",
     },
   ];

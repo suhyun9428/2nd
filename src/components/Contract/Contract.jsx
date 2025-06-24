@@ -13,30 +13,26 @@ const Box = styled.div`
 `;
 
 const Contract = () => {
-  const [position, setScroll] = useState(0);
-  var lastScrollY = 0;
-  function onScroll() {
-    setScroll(window.scrollY);
-    var currentScrollY = position;
+  const [prevScrollY, setPrevScrollY] = useState(0);
 
-    if (currentScrollY > 100) {
-      document.getElementById("root").classList.add("js-fixed");
-      // return console.log(document.getElementById("root").classList);
-    }
-    if (currentScrollY > 220) {
-      document.getElementById("root").classList.remove("js-fixed");
-    }
-    // lastScrollY < currentScrollY ? console.log("down") : console.log("up");
-
-    // console.log(currentScrollY, "position");
-    // lastScrollY = currentScrollY;
-  }
   useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      const isGoingUp = currentY < prevScrollY;
+      setPrevScrollY(currentY);
+
+      if (currentY > 100 || isGoingUp) {
+        document.getElementById("root").classList.add("js-fixed");
+      }
+      if (currentY > 220 || !isGoingUp) {
+        document.getElementById("root").classList.remove("js-fixed");
+      }
+    };
     window.addEventListener("scroll", onScroll);
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", onScroll); // clean-up!
     };
-  });
+  }, [prevScrollY]);
 
   return (
     <>

@@ -11,7 +11,6 @@ const Agreement = () => {
     const newSetChecked = [...checked];
     newSetChecked[idx] = e.target.checked;
     setChecked(newSetChecked);
-    // !!!! 복사해서 사용하지 않으면 리액트는 상태 변화를 감지하지 못함;;;;
   };
   const handleOpen = (idx) => {
     isOpen((prev) => ({
@@ -19,6 +18,8 @@ const Agreement = () => {
       [idx]: !prev[idx],
     }));
   };
+
+  const isAllChecked = checked.every((e) => e === true);
   const handleAllCheck = (e) => {
     if (e.target.checked) {
       setChecked(new Array(dummyData.terms.length).fill(true));
@@ -26,7 +27,7 @@ const Agreement = () => {
       setChecked(new Array(dummyData.terms.length).fill(false));
     }
   };
-  const isAllChecked = checked.every((e) => e === true);
+
   return (
     <div className="box__agreement-wrap">
       <h1 className="text__title">{dummyData.title}</h1>

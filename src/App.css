@@ -20,16 +20,17 @@
     gap: 5px;
     padding: 16px 20px;
     box-sizing: border-box;
-    background-color: pink;
+    background-color: rgba(245, 245, 245, 0.8);
+    backdrop-filter: blur(8px);
     .link__navi {
       flex: 1;
       font-size: 16px;
       font-family: var(--gmarketFont);
-      color: var(--black);
+      color: var(--gray-dark);
       text-decoration: none;
       &.link__active {
         font-weight: bold;
-        color: var(--blue);
+        color: var(--Green-900);
       }
     }
   }

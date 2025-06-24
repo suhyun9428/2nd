@@ -1,7 +1,5 @@
-import { Fragment } from "react/jsx-runtime";
-import dummyData from "./dummyData/dummyData";
 import { useState } from "react";
-import classNames from "classnames";
+
 const AgreementTest = () => {
   const dummy = ["사과", "바나나", "포도"];
   const [checkStates, setCheckStates] = useState(
