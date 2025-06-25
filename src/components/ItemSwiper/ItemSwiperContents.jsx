@@ -47,18 +47,23 @@ const ItemSwiperContents = () => {
           type: "fraction",
         }}
         centeredSlides={true}
-        onSlideChangeTransitionEnd={(swiper) => console.log("hi", swiper)}
-        onInit={(swiper) => {
-          setTimeout(() => {
-            swiper.params.navigation.prevEl =
-              ".button__swiper.button__swiper-prev";
-            swiper.params.navigation.nextEl =
-              ".button__swiper.button__swiper-next";
-            swiper.navigation.init();
-            swiper.navigation.update();
-          });
+        onSlideChangeTransitionEnd={(swiper) => {
+          //   console.log("hi", swiper);
+          // 이때 title이랑 subtitle 노출 제어
         }}
+        // onInit={(swiper) => {
+        //   setTimeout(() => {
+        //     swiper.params.navigation.prevEl =
+        //       ".button__swiper.button__swiper-prev";
+        //     swiper.params.navigation.nextEl =
+        //       ".button__swiper.button__swiper-next";
+        //     swiper.navigation.init();
+        //     swiper.navigation.update();
+        //   });
+        // }}
+        // swiper slideMouseEnter react navigation
         onSwiper={(swiper) => {
+          console.log(swiper);
           swiperRef.current = swiper;
         }}
         autoplay={{
