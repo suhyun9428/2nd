@@ -14,6 +14,10 @@ const Layout = () => {
       text: "약관",
       path: "3",
     },
+    {
+      text: "Swiper",
+      path: "4",
+    },
   ];
   return (
     <div className="box__second-terms">
