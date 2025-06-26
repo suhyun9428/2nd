@@ -18,7 +18,6 @@
           object-fit: cover;
         }
         .box__text-wrap {
-          display: none;
           position: absolute;
           left: 15px;
           bottom: 40px;
@@ -47,9 +46,6 @@
       &.swiper-slide-active {
         height: 380px;
         .link__item {
-          .box__text-wrap {
-            display: block;
-          }
           &::after {
             content: none;
           }
@@ -65,7 +61,7 @@
     height: 50px;
     border: 0;
     transform: translateY(-50%);
-    z-index: 1;
+    z-index: 10;
     background: url(../../images/itemswiper/image__prev.png) no-repeat
       center/30px 50px;
     &.button__swiper-next {
