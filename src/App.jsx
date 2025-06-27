@@ -4,7 +4,7 @@ import Best from "./components/Best/Best";
 import Emart from "./components/Emart/Emart";
 import Contract from "./components/Contract/Contract";
 import "./App.css";
-import ItemSwiperContents from "./components/ItemSwiper/ItemSwiperContents";
+import ItemSwiper from "./components/ItemSwiper/ItemSwiper";
 import SlidePractice from "./components/ItemSwiper/SlidePractice";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <Route path="2" element={<Emart />} />
         <Route path="3" element={<Contract />} />
         {/* <Route path="4" element={<SlidePractice />} /> */}
-        <Route path="4" element={<ItemSwiperContents />} />
+        <Route path="4" element={<ItemSwiper />} />
       </Route>
       <Route path="/" element={<Navigate to="week" replace />} />
     </Routes>

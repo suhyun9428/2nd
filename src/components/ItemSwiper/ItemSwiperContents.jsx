@@ -15,12 +15,6 @@ const ItemSwiperContents = () => {
   const [showNavigation, setShowNavigation] = useState(false);
 
   const handlePlay = () => {
-    // console.log(
-    //   "play?",
-    //   swiperRef,
-    //   swiperRef.current,
-    //   swiperRef.current.autoplay
-    // );
     if (swiperRef.current && swiperRef.current.autoplay) {
       swiperRef.current.autoplay.start();
     }
@@ -41,30 +35,37 @@ const ItemSwiperContents = () => {
   };
 
   const handleMouseLeave = () => {
-    // console.log("leave");
     setShowNavigation(false);
   };
   const handleMouseEnter = () => {
-    // console.log("enter");
     setShowNavigation(true);
   };
-
+  // useEffect(() => {
+  //   if (swiperRef.current && showNavigation) {
+  //     const swiper = swiperRef.current;
+  //     swiper.params.navigation.prevEl = ".button__swiper.button__swiper-prev";
+  //     swiper.params.navigation.nextEl = ".button__swiper.button__swiper-next";
+  //     swiper.navigation.destroy();
+  //     swiper.navigation.init();
+  //     swiper.navigation.update();
+  //   }
+  // }, [showNavigation]);
   return (
     <div
       className="box__swiper-container"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {showNavigation && (
-        <>
-          <button type="button" className="button__swiper button__swiper-prev">
-            <span className="for-a11y">이전</span>
-          </button>
-          <button type="button" className="button__swiper button__swiper-next">
-            <span className="for-a11y">다음</span>
-          </button>
-        </>
-      )}
+      <div
+        className={`box__navigation-wrap ${showNavigation ? "box__navigation-wrap--active" : ""}`}
+      >
+        <button type="button" className="button__swiper button__swiper-prev">
+          <span className="for-a11y">이전</span>
+        </button>
+        <button type="button" className="button__swiper button__swiper-next">
+          <span className="for-a11y">다음</span>
+        </button>
+      </div>
       <Swiper
         slidesPerView={4}
         modules={[Autoplay, Navigation, Pagination]}
