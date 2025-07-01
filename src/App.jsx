@@ -3,20 +3,20 @@ import Layout from "./components/Layout";
 import Best from "./components/Best/Best";
 import Emart from "./components/Emart/Emart";
 import Contract from "./components/Contract/Contract";
-import "./App.css";
 import ItemSwiper from "./components/ItemSwiper/ItemSwiper";
-import SlidePractice from "./components/ItemSwiper/SlidePractice";
+import AriaTest from "./components/AriaTest/AriaContext";
+import "./App.css";
 
 function App() {
   return (
     <Routes>
       <Route path="/week" element={<Layout />}>
-        <Route index element={<Navigate to="4" replace />} />
+        <Route index element={<Navigate to="5" replace />} />
         <Route path="1" element={<Best />} />
         <Route path="2" element={<Emart />} />
         <Route path="3" element={<Contract />} />
-        {/* <Route path="4" element={<SlidePractice />} /> */}
         <Route path="4" element={<ItemSwiper />} />
+        <Route path="5" element={<AriaTest />} />
       </Route>
       <Route path="/" element={<Navigate to="week" replace />} />
     </Routes>
