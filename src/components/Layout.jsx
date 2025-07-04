@@ -18,6 +18,10 @@ const Layout = () => {
       text: "Swiper",
       path: "4",
     },
+    {
+      text: "숙박필터",
+      path: "5",
+    },
   ];
   return (
     <div className="box__second-terms">
