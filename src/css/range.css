@@ -41,18 +41,9 @@
   .box__layer-content {
     width: 100%;
     max-width: 768px;
-    .box__layer-header {
-      height: 36px;
-      border-bottom: 1px solid #f8f8f8;
-      line-height: 36px;
-      .button__close {
-        font-size: 20px;
-        cursor: pointer;
-      }
-    }
     .box__layer-body {
       .box__search-container {
-        padding: 20px 10px 70px;
+        padding: 20px 10px 60px;
       }
       .list__types {
         display: flex;
@@ -64,9 +55,9 @@
           .button__types {
             width: 100%;
             padding: 10px 16px;
-            border-radius: 9999px;
-            border: 1.5px solid var(--gray-border);
-            background: #fff;
+            border-radius: 30px;
+            border: 1px solid var(--gray-border);
+            background: var(--white);
             font-size: 15px;
             font-weight: 500;
             color: #444;
@@ -95,9 +86,9 @@
         margin-bottom: 8px;
         font-size: 14px;
         font-weight: bold;
+        color: var(--text-dark);
         line-height: 20px;
         text-align: left;
-        color: var(--text-dark);
       }
       .box__title {
         display: flex;
@@ -120,184 +111,191 @@
     }
   }
 }
-
 .box__search-details {
   margin-top: 20px;
-}
-/* 가격 */
-.box__search-price {
-  .box__section-range {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .box__title {
-      margin-top: 0;
-      font-size: 16px;
-      font-weight: 600;
-      color: #333;
-    }
-    .box__set-range {
-      font-size: 13px;
-      .text__value,
-      .text__wave {
+  /* 가격 */
+  .box__search-price {
+    .box__section-range {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .box__title {
+        margin-top: 0;
+        font-size: 16px;
         font-weight: 600;
-        color: var(--primary-red);
+        color: #333;
       }
-      .text__wave {
-        padding: 0 4px;
+      .box__set-range {
+        font-size: 13px;
+        .text__value,
+        .text__wave {
+          font-weight: 600;
+          color: var(--primary-red);
+        }
+        .text__wave {
+          padding: 0 4px;
+        }
       }
     }
-  }
-  .box__slider-container {
-    position: relative;
-    margin-top: 4px;
-    .box__slider-track {
-      width: 100%;
-      height: 10px;
-      border-radius: 9999px;
-      background: #f0f0f0;
+    .box__slider-container {
       position: relative;
-      z-index: 1;
-    }
-    .box__slider-range {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 10px;
-      border-radius: 9999px;
-      background: var(--primary-red);
-      z-index: 2;
-      pointer-events: none;
-    }
-    .form__minrange,
-    .form__maxrange {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      height: 10px;
-      background: transparent;
-      appearance: none;
-      -webkit-appearance: none;
-      pointer-events: none;
-      transform: translateY(-50%);
-    }
-    .form__minrange {
-      z-index: 3;
-      left: 0;
-    }
-    .form__maxrange {
-      z-index: 4;
-      right: 0;
-    }
-    .form__minrange::-webkit-slider-thumb,
-    .form__maxrange::-webkit-slider-thumb {
-      appearance: none;
-      -webkit-appearance: none;
-      pointer-events: auto;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background-color: #fff;
-      border: 2px solid var(--primary-red);
-      box-shadow: 0 3px 8px rgba(255, 56, 92, 0.25);
-      cursor: pointer;
-      transition:
-        border-color 0.3s ease,
-        box-shadow 0.3s ease,
-        transform 0.2s ease;
-    }
-  }
-}
-/* 호텔명 */
-.box__search-name {
-  margin-top: 20px;
-  .form__searchname {
-    width: 100%;
-    height: 40px;
-    text-indent: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #fff;
-    font-size: 14px;
-    color: #333;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    appearance: none;
-    -webkit-appearance: none;
-    transition:
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
-    &:focus {
-      border-color: var(--primary-red);
-      box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.2);
-      outline: none;
-    }
-    &::placeholder {
-      color: #aaa;
-      font-size: 13px;
-    }
-  }
-}
-/* 부대/편의시설 */
-.box__search-options {
-  margin-top: 20px;
-  input[id="allCheck"] {
-    vertical-align: middle;
-  }
-  .list__options {
-    display: grid;
-    grid-template-columns: repeat(4, 80px);
-    gap: 12px;
-    justify-content: center;
-    list-style: none;
-    padding: 10px 0;
-    .list-item {
-      position: relative;
-      width: 80px;
-      height: 80px;
-      border-radius: 16px;
-      border: 1px solid var(--gray-border);
-      background-color: #fff;
-      transition: all 0.2s ease;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-      box-sizing: border-box;
-      &:hover {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-        transform: translateY(-2px);
-      }
-      .button {
+      margin-top: 4px;
+      .box__slider-track {
         width: 100%;
-        height: 100%;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        appearance: none;
-        border-radius: 16px;
+        height: 10px;
+        border-radius: 9999px;
+        background: #f0f0f0;
         position: relative;
         z-index: 1;
       }
-      .text__checkbox {
+      .box__slider-range {
         position: absolute;
-        bottom: 8px;
-        left: 50%;
-        transform: translateX(-50%);
-        font-size: 12px;
-        font-weight: 500;
-        color: var(--text-dark);
+        top: 50%;
+        transform: translateY(-50%);
+        height: 10px;
+        border-radius: 9999px;
+        background: var(--primary-red);
         z-index: 2;
-        transition: color 0.3s ease;
-        white-space: nowrap;
+        pointer-events: none;
       }
-      .button:checked {
-        background-color: var(--primary-red-light);
-        box-shadow: 0 4px 8px rgba(255, 56, 92, 0.2);
+      .form__minrange,
+      .form__maxrange {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 10px;
+        background: transparent;
+        appearance: none;
+        -webkit-appearance: none;
+        pointer-events: none;
+        transform: translateY(-50%);
       }
-      .button:checked + .text__checkbox {
-        color: var(--primary-red);
-        font-weight: bold;
+      .form__minrange {
+        z-index: 3;
+        left: 0;
       }
-      &:has(.button:checked) {
+      .form__maxrange {
+        z-index: 4;
+        right: 0;
+      }
+      .form__minrange::-webkit-slider-thumb,
+      .form__maxrange::-webkit-slider-thumb {
+        appearance: none;
+        -webkit-appearance: none;
+        pointer-events: auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
         border: 2px solid var(--primary-red);
-        background-color: var(--primary-red-light);
+        box-shadow: 0 3px 8px rgba(255, 56, 92, 0.25);
+        cursor: pointer;
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease,
+          transform 0.2s ease;
+      }
+    }
+  }
+  /* 호텔명 */
+  .box__search-name {
+    margin-top: 20px;
+    .form__searchname {
+      width: 100%;
+      height: 40px;
+      text-indent: 12px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #fff;
+      font-size: 14px;
+      color: #333;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      appearance: none;
+      -webkit-appearance: none;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+      &:focus {
+        border-color: var(--primary-red);
+        box-shadow: 0 0 0 3px rgba(255, 56, 92, 0.2);
+        outline: none;
+      }
+      &::placeholder {
+        color: #aaa;
+        font-size: 13px;
+      }
+    }
+  }
+  /* 부대/편의시설 */
+  .box__search-options {
+    margin-top: 20px;
+    input[id="allCheck"] {
+      vertical-align: middle;
+    }
+    .list__options {
+      display: grid;
+      grid-template-columns: repeat(4, 80px);
+      gap: 12px;
+      justify-content: center;
+      list-style: none;
+      padding: 10px 0;
+      .list-item {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        border-radius: 16px;
+        border: 1px solid var(--gray-border);
+        background-color: #fff;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        box-sizing: border-box;
+        &:hover {
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+          transform: translateY(-2px);
+        }
+        .form__options {
+          width: 100%;
+          height: 100%;
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          appearance: none;
+          border-radius: 16px;
+          position: relative;
+          z-index: 1;
+        }
+        .text__icon {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          font-size: 35px;
+          transform: translateX(-50%);
+          z-index: 10;
+        }
+        .text__checkbox {
+          position: absolute;
+          bottom: 8px;
+          left: 50%;
+          transform: translateX(-50%);
+          font-size: 12px;
+          font-weight: 500;
+          color: var(--text-dark);
+          z-index: 2;
+          transition: color 0.3s ease;
+          white-space: nowrap;
+        }
+        .form__options:checked {
+          background-color: var(--primary-red-light);
+          box-shadow: 0 4px 8px rgba(255, 56, 92, 0.2);
+        }
+        .form__options:checked + .text__checkbox {
+          color: var(--primary-red);
+          font-weight: bold;
+        }
+        &:has(.form__options:checked) {
+          border: 2px solid var(--primary-red);
+          background-color: var(--primary-red-light);
+        }
       }
     }
   }

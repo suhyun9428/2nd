@@ -1,21 +1,72 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import ListTypes from "./ListTypes";
 import InputRange from "./InputRange";
 // import InputRangeTest from "./InputRangeTest";
 import SelectOptions from "./SelectOptions";
 
-const SearchLayer = ({ onClose }) => {
+const SearchLayer = ({ onClose, openLayerRef, buttonRef, idx }) => {
+  const layerRef = useRef(null);
   const [reset, setReset] = useState(false);
   const handleReset = () => {
     setReset(!reset);
   };
+  const handleKeyDown = (e) => {
+    var focusElString =
+      'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], input[type="radio"]';
+    var focusEl = layerRef.current?.querySelectorAll(focusElString);
+    if (!focusEl || focusEl.length === 0) return;
+
+    var firstTab = focusEl[0];
+    var lastTab = focusEl[focusEl.length - 1];
+
+    if (e.key === "Tab") {
+      var activeEl = document.activeElement;
+      if (e.shiftKey && activeEl === firstTab) {
+        e.preventDefault();
+        lastTab.focus();
+      } else if (!e.shiftKey && activeEl === lastTab) {
+        e.preventDefault();
+        firstTab.focus();
+      }
+    }
+
+    if (e.key === "Escape") {
+      onClose?.();
+      if (idx !== undefined) {
+        openLayerRef.current[idx]?.focus();
+      }
+    }
+  };
+
+  useEffect(() => {
+    const focusElString =
+      'a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], input[type="radio"]';
+    const focusEl = layerRef.current?.querySelectorAll(focusElString);
+    if (focusEl && focusEl.length > 0) {
+      focusEl[0].focus();
+    }
+  }, []);
+
   return (
-    <div className="box__layer box__layer-search box__layer--active">
+    <div
+      className="box__layer box__layer-search box__layer--active"
+      ref={layerRef}
+      tabIndex={-1}
+      onKeyDown={handleKeyDown}
+    >
       <div className="box__layer-content">
         <div className="box__layer-header">
           <p className="text__header">상세검색</p>
-          <button type="button" className="button__close" onClick={onClose}>
+          <button
+            type="button"
+            className="button__close"
+            onClick={() => {
+              onClose?.();
+              if (idx !== undefined) openLayerRef.current[idx]?.focus();
+            }}
+            ref={buttonRef}
+          >
             x
           </button>
         </div>

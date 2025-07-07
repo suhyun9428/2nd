@@ -1,20 +1,20 @@
 import Tabs from "./Tabs";
 import Contents from "./Contents";
 import { useAtom } from "jotai";
-import { activeTabIndex } from "./atom/atom";
-import Layer from "../fragment/Layer";
+import { activeTabIndex, handleLayer } from "./atom/atom";
+import CartLayer from "./Layer/CartLayer";
 
 const TabContent = ({ data }) => {
   const [active, setActive] = useAtom(activeTabIndex);
-  // const activeItem = data[active];
-  // console.log(activeItem,"?")
+  const [openLayer, setOpenLayer] = useAtom(handleLayer);
+
   return (
     <>
       <Tabs data={data} />
       {data.map((item, idx) => {
         return idx === active && <Contents data={item} key={idx} />;
       })}
-      <Layer />
+      {openLayer && <CartLayer isActive={openLayer} />}
     </>
   );
 };

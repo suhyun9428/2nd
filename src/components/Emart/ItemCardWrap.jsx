@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from 'swiper/modules';
-
+import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import ItemCard from "../fragment/ItemCard";
@@ -8,21 +7,26 @@ import ItemCard from "../fragment/ItemCard";
 const ItemCardWrap = ({ data }) => {
   return (
     <>
-      <Swiper className="box__itemcard-wrapper" slidesPerView={5}
+      <Swiper
+        className="box__itemcard-wrapper"
+        slidesPerView={5}
         modules={[Navigation]}
         navigation={{
-          nextEl: '.button__swiper.button__swiper-next',
-          prevEl: '.button__swiper.button__swiper-prev',
+          nextEl: ".button__swiper.button__swiper-next",
+          prevEl: ".button__swiper.button__swiper-prev",
         }}
         slidesPerGroup={5}
         loop
         onSwiper={(swiper) =>
           setTimeout(() => {
-            swiper.params.navigation.prevEl = '.button__swiper.button__swiper-prev';
-            swiper.params.navigation.nextEl = '.button__swiper.button__swiper-next';
+            swiper.params.navigation.prevEl =
+              ".button__swiper.button__swiper-prev";
+            swiper.params.navigation.nextEl =
+              ".button__swiper.button__swiper-next";
             swiper.navigation.init();
             swiper.navigation.update();
-          })}
+          })
+        }
       >
         {data.map((item, idx) => {
           return (

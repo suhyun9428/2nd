@@ -5,6 +5,7 @@ import Emart from "./components/Emart/Emart";
 import Contract from "./components/Contract/Contract";
 import ItemSwiper from "./components/ItemSwiper/ItemSwiper";
 import AriaTest from "./components/AriaTest/AriaContext";
+import FocusTest from "./components/FocusTest/FocusContext";
 import "./App.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="3" element={<Contract />} />
         <Route path="4" element={<ItemSwiper />} />
         <Route path="5" element={<AriaTest />} />
+        {/* <Route path="5" element={<FocusTest />} /> */}
       </Route>
       <Route path="/" element={<Navigate to="week" replace />} />
     </Routes>

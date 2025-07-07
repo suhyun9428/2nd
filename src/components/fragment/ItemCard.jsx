@@ -1,12 +1,16 @@
 import classNames from "classnames";
 import AddCounter from "./AddCounter";
+import CartLayer from "../Emart/Layer/CartLayer";
 import { useState } from "react";
 
 const ItemCard = ({ data }) => {
   const [favorite, setFavorite] = useState(false);
+  const [openLayer, setOpenLayer] = useState(false);
+
   const handleFavotire = () => {
     setFavorite(!favorite);
   };
+
   return (
     <>
       <a href={data.linkUrl} className="link__item">
