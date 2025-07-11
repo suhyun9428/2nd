@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useAtom } from "jotai";
 import { handleLayer } from "../Emart/atom/atom";
 
-const AddCounter = () => {
+const AddCounter = ({}) => {
+  // lottie 용인지 props로 받고 lottie 용 버튼 렌더링하는게 깔끔할거 같은데..
   const [counter, setCounter] = useState(0);
   const [openLayer, setOpenLayer] = useAtom(handleLayer);
-
   const handleMinus = () => {
     setCounter(Math.max(counter - 1, 0));
   };
@@ -39,7 +39,10 @@ const AddCounter = () => {
         <button
           type="button"
           className="button__cart"
-          onClick={() => setOpenLayer(true)}
+          // onClick={() => setOpenLayer(true)}
+          onClick={() => {
+            console.log("forLottie");
+          }}
         >
           <span className="for-a11y">장바구니 담기</span>
         </button>

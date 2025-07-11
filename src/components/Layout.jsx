@@ -22,6 +22,10 @@ const Layout = () => {
       text: "숙박필터",
       path: "5",
     },
+    {
+      text: "토스트, 로띠",
+      path: "6",
+    },
   ];
   return (
     <div className="box__second-terms">
