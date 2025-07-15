@@ -1,8 +1,6 @@
-import { useRef, useState } from "react";
-import { createPortal } from "react-dom";
+import ModalPortal from "../fragment/ModalPortal";
 import AddCounter from "../fragment/AddCounter";
 import "../../css/toastlottie.css";
-import ModalPortal from "../fragment/ModalPortal";
 
 const ToastLottie = () => {
   return (
