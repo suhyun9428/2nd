@@ -1,6 +1,7 @@
 import dummyData from "./dummyData/dummyData";
 import TabContent from "./TabContent";
 import "../../css/emart.css";
+import "../../css/info.css";
 
 const Emart = () => {
   return (

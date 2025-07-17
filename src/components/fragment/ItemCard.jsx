@@ -1,141 +1,239 @@
 import classNames from "classnames";
 import AddCounter from "./AddCounter";
-import CartLayer from "../Emart/Layer/CartLayer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Lottie from "lottie-react";
 
-const ItemCard = ({ data }) => {
-  const [favorite, setFavorite] = useState(false);
-  const [openLayer, setOpenLayer] = useState(false);
+const ImageSection = ({ data }) => {
+  const [animationData, setAnimationData] = useState(null);
+  
+  useEffect(() => {
+    fetch('https://script.gmarket.co.kr/starro/mobile/lottie/confetti.json')
+      .then((res) => res.json())
+      .then((data) => setAnimationData(data));
+  }, []);
+  
+  return(
+    <div className="box__image">
+      {data.rank == 1 && <Lottie animationData={animationData} loop={true} className="image__confetti" />}
+      <img src={data.imageUrl} className="image" />
+      {data.isEmart && data.tagLabels.length !== 0 && (
+        <span className="text__label">{data.tagLabels[0].text}</span>
+      )}
+      {!data.isEmart && data.rank && (
+        <span className="text__label">{data.rank}</span>
+      )}
+    </div>
+  )
+};
 
-  const handleFavotire = () => {
-    setFavorite(!favorite);
-  };
-
-  return (
-    <>
-      <a href={data.linkUrl} className="link__item">
-        <div className="box__image">
-          <img src={data.imageUrl} className="image" />
-          {data.isEmart && data.tagLabels.length !== 0 && (
-            <span className="text__label">{data.tagLabels[0].text}</span>
-          )}
-          {!data.isEmart && data.rank && (
-            <span className="text__label">{data.rank}</span>
-          )}
-        </div>
-        <div className="box__info">
-          {data.isEmart && <AddCounter />}
-          {data.isEmart ? (
-            <p className="text__title">{data.itemName}</p>
-          ) : (
-            <p className="text__title">{data.goodsName} </p>
-          )}
-          <div className="box__price">
-            {data.hasCoupon ? (
-              <>
-                <div className="box__coupon-discount">
-                  <span className="text__coupon">쿠폰적용가</span>
-                  <span className="text__coupon-price">
-                    <del className="text__value">{data.price}</del>
-                    <span className="text__unit">원</span>
+const InfoSection = ({ data, isMobile }) => {
+  return(
+    <div className="box__info">
+      {data.isEmart && <AddCounter />}
+      {!isMobile && (data.isEmart ? (
+        <p className="text__title">{data.itemName}</p>
+      ) : (
+        <p className="text__title">{data.goodsName} </p>
+      ))}
+      {isMobile ? (
+        <div className="box__price">
+          {data.hasCoupon ? (
+            <>
+              <div className="box__coupon-discount">
+                <span className="text__coupon">쿠폰적용가</span>
+                <span className="text__coupon-price">
+                  <del className="text__value">{data.price}</del>
+                  <span className="text__unit">원</span>
+                </span>
+              </div>
+              <div className="box__discount">
+                <span className="text__discout-precent">
+                  {data.discountRate}%
+                </span>
+                <span className="text__discount-price">
+                  <span className="text__selling-price">
+                    {data.discountPrice}
                   </span>
-                </div>
-                <div className="box__discount">
-                  <span className="text__discout-precent">
-                    {data.discountRate}%
-                  </span>
-                  <span className="text__discount-price">
+                  <span className="text__unit">원</span>
+                </span>
+              </div>
+            </>
+          ) : data.discountRate >= 3 ? (
+            <>
+              <div className="box__discount">
+                <span className="text__discount-price">
+                  {data.isEmart ? (
+                    <del className="text__original-price">{data.price}</del>
+                  ) : (
                     <del className="text__original-price">
                       {data.discountPrice}
                     </del>
-                    <span className="text__unit">원</span>
-                  </span>
-                </div>
-              </>
-            ) : data.discountRate >= 3 ? (
-              <>
-                <div className="box__discount">
-                  <span className="text__discout-precent">
-                    {data.discountRate}%
-                  </span>
-                  <span className="text__discount-price">
-                    {data.isEmart ? (
-                      <del className="text__original-price">{data.price}</del>
-                    ) : (
-                      <del className="text__original-price">
-                        {data.discountPrice}
-                      </del>
-                    )}
-                    <span className="text__unit">원</span>
-                  </span>
-                </div>
-                <div className="box__selling-price">
-                  {data.isEmart ? (
-                    <span className="text__selling-price">
-                      {data.itemPrice.toLocaleString()}
-                    </span>
-                  ) : (
-                    <span className="text__selling-price">
-                      {data.discountPrice}
-                    </span>
                   )}
                   <span className="text__unit">원</span>
-                </div>
-              </>
-            ) : data.discountRate !== 0 ? (
-              <>
-                <div className="box__discount">
-                  <span className="text__discount-price">
-                    <del className="text__original-price">
-                      {data.discountPrice.toLocaleString()}
-                    </del>
-                    <span className="text__unit">원</span>
-                  </span>
-                </div>
-                <div className="box__selling-price">
-                  {data.isEmart ? (
-                    <span className="text__selling-price">
-                      {data.sellPrice}
-                    </span>
-                  ) : (
-                    <span className="text__selling-price">
-                      {data.itemPrice}
-                    </span>
-                  )}
-                  <span className="text__unit">원??</span>
-                </div>
-              </>
-            ) : (
+                </span>
+              </div>
+              <span className="text__discout-precent">
+                  {data.discountRate}%
+                </span>
               <div className="box__selling-price">
                 {data.isEmart ? (
                   <span className="text__selling-price">
-                    {data.sellPrice.toLocaleString()}
+                    {data.itemPrice.toLocaleString()}
                   </span>
                 ) : (
-                  <span className="text__selling-price">{data.itemPrice}</span>
+                  <span className="text__selling-price">
+                    {data.discountPrice}
+                  </span>
                 )}
-                <span className="text__unit">원?</span>
+                <span className="text__unit">원</span>
               </div>
-            )}
-          </div>
+            </>
+          ) : data.discountRate !== 0 ? (
+            <>
+              <div className="box__discount">
+                <span className="text__discount-price">
+                  <del className="text__original-price">
+                    {data.discountPrice.toLocaleString()}
+                  </del>
+                  <span className="text__unit">원</span>
+                </span>
+              </div>
+              <div className="box__selling-price">
+                {data.isEmart ? (
+                  <span className="text__selling-price">
+                    {data.sellPrice}
+                  </span>
+                ) : (
+                  <span className="text__selling-price">
+                    {data.price}
+                  </span>
+                )}
+                <span className="text__unit">원</span>
+              </div>
+            </>
+          ) : (
+            <div className="box__selling-price">
+              {data.isEmart ? (
+                <span className="text__selling-price">
+                  {data.sellPrice.toLocaleString()}
+                </span>
+              ) : (
+                <span className="text__selling-price">{data.price}</span>
+              )}
+              <span className="text__unit">원</span>
+            </div>
+          )}
+        </div>
+      ):(
+        <div className="box__price">
+          {data.hasCoupon ? (
+            <>
+              <div className="box__coupon-discount">
+                <span className="text__coupon">쿠폰적용가</span>
+                <span className="text__coupon-price">
+                  <del className="text__value">{data.price}</del>
+                  <span className="text__unit">원</span>
+                </span>
+              </div>
+              <div className="box__discount">
+                <span className="text__discout-precent">
+                  {data.discountRate}%
+                </span>
+                <span className="text__discount-price">
+                  <span className="text__selling-price">
+                    {data.discountPrice}
+                  </span>
+                  <span className="text__unit">원</span>
+                </span>
+              </div>
+            </>
+          ) : data.discountRate >= 3 ? (
+            <>
+              <div className="box__discount">
+                <span className="text__discout-precent">
+                  {data.discountRate}%
+                </span>
+                <span className="text__discount-price">
+                  {data.isEmart ? (
+                    <del className="text__original-price">{data.sellPrice}</del>
+                  ) : (
+                    <del className="text__original-price">
+                      {data.discountPrice}
+                    </del>
+                  )}
+                  <span className="text__unit">원</span>
+                </span>
+              </div>
+              <div className="box__selling-price">
+                {data.isEmart ? (
+                  <span className="text__selling-price">
+                    {data.itemPrice.toLocaleString()}
+                  </span>
+                ) : (
+                  <span className="text__selling-price">
+                    {data.discountPrice}
+                  </span>
+                )}
+                <span className="text__unit">원</span>
+              </div>
+            </>
+          ) : data.discountRate !== 0 ? (
+            <>
+              <div className="box__discount">
+                <span className="text__discount-price">
+                  <del className="text__original-price">
+                    {data.discountPrice.toLocaleString()}
+                  </del>
+                  <span className="text__unit">원</span>
+                </span>
+              </div>
+              <div className="box__selling-price">
+                {data.isEmart ? (
+                  <span className="text__selling-price">
+                    {data.sellPrice}
+                  </span>
+                ) : (
+                  <span className="text__selling-price">
+                    {data.price}
+                  </span>
+                )}
+                <span className="text__unit">원</span>
+              </div>
+            </>
+          ) : (
+            <div className="box__selling-price">
+              {data.isEmart ? (
+                <span className="text__selling-price">
+                  {data.sellPrice.toLocaleString()}
+                </span>
+              ) : (
+                <span className="text__selling-price">{data.price}</span>
+              )}
+              <span className="text__unit">원</span>
+            </div>
+          )}
+        </div>)
+      }
+      
+      {isMobile &&  (
+        <p className="text__title">{data.goodsName}</p>
+      )}
+      {((isMobile && data.rank !== 1) || (!isMobile)) && (
           <ul className="list__lmo">
-            {data.avgStarPoint ||
-              (data.reviewPoint && (
-                <li className="list-item__lmo">
-                  <img
-                    className="image"
-                    src="../image__starrate.png"
-                    alt="평점"
-                  />
-                  <span className="text text__star">
-                    {data.avgStarPoint || data.reviewPoint.starPoint}
-                  </span>
-                  <span className="text text__rate-number">
-                    ({data.reviewCount || data.reviewPoint.reviewCount})
-                  </span>
-                  <span className="for-a11y">건</span>
-                </li>
-              ))}
+            {(data.avgStarPoint || data.reviewPoint) && (<li className="list-item__lmo">
+                <img
+                  className="image"
+                  src="../image__starrate.png"
+                  alt="평점"
+                />
+                <span className="text text__star">
+                  {data.avgStarPoint || data.reviewPoint.starPoint}
+                </span>
+                <span className="text text__rate-number">
+                  ({data.reviewCount || data.reviewPoint.reviewCount})
+                </span>
+                <span className="for-a11y">건</span>
+              </li>)}
             {data.buyCount && data.buyCount !== 0 && (
               <li className="list-item__lmo">
                 <span className="text">구매</span>
@@ -144,20 +242,51 @@ const ItemCard = ({ data }) => {
               </li>
             )}
           </ul>
-        </div>
-      </a>
-      {data.isEmart && data.hasFavorite && (
-        <button
-          type="button"
-          className={classNames(
-            "button__favorite",
-            favorite && "button__favorite--active"
-          )}
-          onClick={handleFavotire}
-        >
-          <span className="for-a11y">관심상품 등록하기</span>
-        </button>
+        )            
+      }
+    </div>
+  )
+};
+
+const MinishopInfo = ({ data }) => {
+  return(
+    <a href={data.miniShopInfo.url} className="link__minishop">
+      <span className="text__minishop">{data.miniShopInfo.nickName}</span>
+    </a>
+  )
+};
+
+const FavoriteButton = () => {
+  const [favorite, setFavorite] = useState(false);
+
+  const handleFavotire = () => {
+    setFavorite(!favorite);
+  };
+
+  return(
+    <button
+      type="button"
+      className={classNames(
+        "button__favorite",
+        favorite && "button__favorite--active"
       )}
+      onClick={handleFavotire}
+    >
+      <span className="for-a11y">관심상품 등록하기</span>
+    </button>
+  )
+};
+
+
+const ItemCard = ({ data, isMobile }) => {
+  return (
+    <>
+      <a href={data.linkUrl} className="link__item">
+        <ImageSection data={data} />
+        <InfoSection data={data} isMobile={isMobile} />
+      </a>
+      {isMobile && data.rank == 1 && data.miniShopInfo !== undefined && <MinishopInfo data={data} />}
+      {data.isEmart && data.hasFavorite && <FavoriteButton data={data} />}
     </>
   );
 };

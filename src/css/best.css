@@ -2,6 +2,31 @@
 .box__contents-best {
   max-width: 1280px;
   margin: 0 auto;
+  padding-top: 40px;
+  .text__title{
+    display: inline-block;
+    font-size: 28px;
+    font-weight: 400;
+    font-family: var(--gmarketFont);
+    line-height: 32px;
+    color: var(--Black);
+    vertical-align: top;
+  }
+  .box__info{
+    .text__title {
+      max-height: 44px;
+      margin-bottom: 4px;
+      font-size: 15px;
+      color: var(--Gray-900);
+      line-height: 22px;
+      text-align: left;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
 }
 .box__category-swiper {
   position: relative;
@@ -87,11 +112,9 @@
     }
   }
 }
-
 .box__items-wrap {
   min-width: 1200px;
-  margin: 102px auto 0;
-
+  margin: 40px auto 0;
   .list__items {
     display: flex;
     flex-wrap: wrap;
@@ -106,6 +129,418 @@
 
       .link__item {
         display: block;
+      }
+    }
+  }
+}
+
+.page__mobile{
+  &.box__contents-best{
+    max-width: none;
+    padding-top: 0;
+  }
+  .box__header-inner{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 48px;
+    background-color: #fff;
+    border-bottom: 1px solid #f5f5f5;
+    z-index: 999;
+    .box__header-content{
+      position: relative;
+      max-width: 768px;
+      margin: 0 auto;
+    }
+    .button__back{
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      background: url(//script.gmarket.co.kr/build/mobile/image/sprite/gnb/sp-gnb.png?v=1744880378003) no-repeat;
+      overflow: hidden;
+      background-position: -208px -100px;
+      -webkit-background-position: -208px -100px;
+      background-size: 290px 256px;
+      -webkit-background-size: 290px 256px;
+    }
+    .box__header-title{
+      display: flex;
+      height: 48px;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-align-items: center;
+      align-items: center;
+      .text{
+        display: block;
+        font-size: 18px;
+        font-weight: 500;
+        font-family: "Gmarket Sans";
+        color: #222;
+        line-height: 24px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+    .box__header-menu{
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 48px;
+      font-size: 0;
+      .link__cart{
+        position: relative;
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        font-size: 12px;
+        overflow: hidden;
+        background: url(//script.gmarket.co.kr/build/mobile/image/sprite/gnb/sp-gnb.png?v=1744880378003) no-repeat;
+        background-size: 290px 256px;
+        -webkit-background-size: 290px 256px;
+        background-position: -158px -100px;
+        -webkit-background-position: -158px -100px;
+        vertical-align: top;
+        .box__cart-count{
+          display: block;
+          position: absolute;
+          right: 5px;
+          top: 8px;
+          width: 16px;
+          height: 16px;
+          .text{
+            position: absolute;
+            left: 50%;
+            top: 0;
+            display: block;
+            min-width: 16px;
+            height: 16px;
+            margin-left: -50%;
+            padding: 4px 4px 0;
+            font-size: 9px;
+            font-weight: 500;
+            font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, Noto Sans CJK KR, Tahoma, "Noto Sans KR", sans-serif;
+            line-height: 9px;
+            white-space: nowrap;
+            color: #fff;
+            border-radius: 8px;
+            letter-spacing: -0.5px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #0028ac;
+            z-index: 1;
+            color:#ffffff;
+          }
+        }
+      }
+    }
+  }
+  .box__category-swiper{
+    position: fixed;
+    top:49px;
+    width: 100%;
+    padding: 12px 6px 5px;
+    background: var(--white);
+    border-bottom: 1px solid var(--Gray-300);
+    z-index: 999;
+    .swiper{
+      max-width: 768px;
+      &.list__category{
+        .swiper-wrapper{
+          .list-item{
+            width: 62px;
+            position: relative;
+            margin-left: 2px;
+            margin-right: 0;
+            .link__category{
+              width: auto;
+              .box__image{
+                width: 44px;
+                height: 44px;
+                margin: 0 auto 2px;
+              }
+              .text__title{
+                display: inline;
+                font-size: 12px;
+                font-family: var(--Font);
+                color: var(--Gray-900);
+                line-height: 28px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .box__items-wrap{
+    min-width: auto;
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 0 16px;
+    .list__items{
+      width: 100%;
+      max-width: 736px;
+      gap: 0;
+      .list-item{
+        width: calc(25% - 8px);
+        margin: 0 4px 8px 4px;
+        box-sizing: border-box;
+        .box__image{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .box__container{
+    width: 100%;
+    margin-top: 91px;
+    border-top: 8px solid var(--Gray-200);
+    .box__search-result-container{
+      position: relative;
+      width: 100%;
+      max-width: 768px;
+      margin: 0 auto;
+      padding: 10px 16px 0;
+      text-align: left;
+      .text__date{
+        position: relative;
+        display: inline-block;
+        font-size: 12px;
+        font-family: var(--Font);
+        color: var(--Gray-500);
+        line-height: 20px;
+        vertical-align: top;
+      }
+      .button__info{
+        position: absolute;
+        top: calc(50% - 8px);
+        right: -18px;
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin-left: 2px;
+        border: 0;
+        background: url(//starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#gds-info-fill);
+        background-size: 100% 100%;
+        box-sizing: border-box;
+      }
+      .box__tooltip-layer{
+        display: none;
+        position: absolute;
+        top: 36px;
+        left: 16px;
+        right: 16px;
+        padding: 16px;
+        border-radius: 8px;
+        border: 1px solid var(--Gray-900);
+        background: var(--White);
+        z-index: 20;
+        .button__close{
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          top: 14px;
+          right: 16px;
+          border: 0;
+          background: url(//starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#gds-24-close);
+          background-size: 100% 100%;
+        }
+        .text__title{
+          margin-bottom: 10px;
+          font-size: 14px;
+          font-weight: 900;
+          color: var(--Gray-900);
+          line-height: 20px;
+        }
+        .list__text{
+          list-style: none;
+          .list-item{
+            padding-left: 10px;
+            font-size: 14px;
+            color: var(--Gray-900);
+            line-height: 20px;
+            text-indent: -10px;
+            &::before{
+              content: "";
+              display: inline-block;
+              width: 2px;
+              height: 2px;
+              margin: 8px 8px 0 0;
+              background: var(--Gray-400);
+              vertical-align: top;
+            }
+          }
+        }
+        &.box__tooltip-layer--active{
+          display: block;
+        }
+      }
+      .box__sorting{
+        .button__sorting{
+          display: block;
+          position: absolute;
+          top: 10px;
+          right: 16px;
+          font-size: 12px;
+          font-family: var(--gmarketFont);
+          color: var(--Gray-900);
+          line-height: 20px;
+          border: 0;
+          background: transparent;
+          box-sizing: border-box;
+          .text{
+            vertical-align: top;
+          }
+          &::before{
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin: 2px 0;
+            background: url(//starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#gds-sort-desc);
+            background-size: 100% 100%;
+          }
+          &::after{
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin: 2px 0;
+            background-image: url(//starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#gds-chevron-down);
+            background-size: 100% 100%;
+          }
+        }
+        .box__sorting-option{
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          z-index: 999;
+          visibility: hidden;
+          &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: rgba(var(--Black-RGB), .4);
+            opacity: 0;
+            transform: opacity .3s ease;
+          }
+          .box__option-content{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 16px 16px 0 0;
+            background: var(--White);
+            transition: all .3s;
+            transform: translateY(100%);
+            .text__title{
+              display: block;
+              border-bottom: 1px solid var(--Gray-200);
+              font-size: 18px;
+              font-family: var(--gmarketFont);
+              color: #2c2c2c;
+              line-height: 48px;
+              text-align: center;
+            }
+            .button__close{
+              width: 48px;
+              height: 48px;
+              position: absolute;
+              top: 0;
+              right: 0;
+              border: 0;
+              background: transparent;
+              &::before{
+                content: "";
+                display: block;
+                width: 32px;
+                height: 32px;
+                background-image: url(https://starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#icon__layer-close);
+                background-size: 100% 100%;
+                vertical-align: top;
+              }
+            }
+            .list__sorting-option{
+              padding: 0 16px 20px;
+              .list-item{
+                position: relative;
+                padding: 14px 0;
+                font-size: 16px;
+                color: #2c2c2c;
+                line-height: 20px;
+                &:not(:last-child){
+                  border-bottom: 1px solid var(--Gray-200);
+                }
+                .button__radio{
+                  width: 100%;
+                  height: 48px;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  border: 0;
+                  background: transparent;
+                  &::before{
+                    content: "";
+                    border-radius: 50%;
+                    border: 1px solid var(--Gray-400);
+                    width: 20px;
+                    height: 20px;
+                    display: block;
+                    position: absolute;
+                    top: 14px;
+                    right: 16px;
+                    box-sizing: border-box;
+
+                  }
+                }
+                &.list-item--active{
+                  .button__radio{
+                    &::before{
+                      background: url(https://starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#icon__check-radio);
+                      background-size: 100% 100%;
+                      border: 0;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &.box_sorting-option--active{
+            visibility: visible;
+            &::before{
+              opacity: 1;
+            }
+            .box__option-content{
+              transform: translateY(0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: 768px){
+  .page__mobile{
+    .box__items-wrap{
+      .list__items{
+        .list-item{
+          width: calc(50% - 8px);
+        }
       }
     }
   }
