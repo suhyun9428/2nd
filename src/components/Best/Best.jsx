@@ -11,24 +11,19 @@ const Best = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(()=>{
-    if(typeof window !== undefined){
+    if(typeof window !== "undefined"){
       const handleResize = () => {
-        if(window.innerWidth < 1200){
+        const deviceWidth = window.document.documentElement.clientWidth;
+        if(deviceWidth < 1200){
           setIsMobile(true);
-          console.log('mo', window.innerWidth)
         }else{
           setIsMobile(false);
-          console.log('pc', window.innerWidth)
         }
-      }
+      };
 
       window.addEventListener('resize', handleResize);
       handleResize();
       return () => window.removeEventListener('resize', handleResize);
-    }else{
-      return()=>window.removeEventListener('resize', () => {
-        return null
-      })
     }
   }, []);
 

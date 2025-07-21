@@ -28,44 +28,68 @@ const Tooltip = () => {
 }
 const Sorting = () => {
   const [selectOpen, setSelectOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(0);
+  const sortingTitles = ['실시간', '일간', '주간'];
 
   return(
     <div className="box__sorting">
       <button type="button" className="button__sorting sprite" title="정렬 방식을 변경하려면 버튼을 클릭해 주세요." id="sorting" aria-haspopup="dialog" aria-controls="sorting_list" onClick={()=>setSelectOpen(true)}>
-        <span className="text">실시간</span>
+        <span className="text">{sortingTitles[selectedOption]}</span>
       </button>
-      {selectOpen && 
-        <div className={`box__sorting-option ${selectOpen ? 'box_sorting-option--active' : ''}`} id="sorting_list" aria-labelledby="sorting" role="dialog" aria-modal="true">
-          <div className="box__option-content" tabIndex="0">
-            <p className="text__title">정렬</p>
-            <button type="button" className="button__close sprite" title="정렬 방식 변경 레이어 닫기" onClick={()=>setSelectOpen(false)}>
-              <span className="for-a11y">닫기</span>
-            </button>
-            <ul className="list__sorting-option">
-              <li className="list-item list-item--active list-item__rank">
-                <span className="text__item" id="item-sort-1">실시간<span className="for-a11y">으로 정렬</span></span>
-                <button type="button" className="button__radio sprite" aria-current="true" aria-describedby="item-sort-1"></button>
-              </li>
-              <li className="list-item  list-item__rank">
-                <span className="text__item" id="item-sort-2">
-                일간
-                <span className="for-a11y">으로 정렬</span>
-                </span>
-                <button type="button" className="button__radio sprite" aria-current="false" aria-describedby="item-sort-2"></button>
-              </li>
-              <li className="list-item  list-item__rank">
-                <span className="text__item" id="item-sort-3">주간
-                <span className="for-a11y">으로 정렬</span>
-                </span>
-                <button type="button" className="button__radio sprite last-focus" aria-current="false" aria-describedby="item-sort-3"></button>
-              </li>
-            </ul>
-          </div>
-          <div className="box__dimmed" aria-hidden="true" onClick={()=>setSelectOpen(false)}>
-            <span className="for-a11y">정렬레이어 딤드배경</span>
-          </div>
+      <div 
+        className={`box__sorting-option ${selectOpen ? 'box_sorting-option--active' : ''}`} 
+        id="sorting_list"
+        aria-labelledby="sorting"
+        role="dialog"
+        aria-modal="true"
+      >
+        <div className="box__option-content" tabIndex={selectOpen ? '0' : '-1'}>
+          <p className="text__title">정렬</p>
+          <button
+            type="button"
+            className="button__close sprite"
+            title="정렬 방식 변경 레이어 닫기"
+            onClick={()=>setSelectOpen(false)}
+          >
+            <span className="for-a11y">닫기</span>
+          </button>
+          <ul className="list__sorting-option">
+            {sortingTitles.map((item, idx) => {
+              return(
+                <li 
+                  className={`list-item list-item__rank ${selectedOption===idx ? 'list-item--active' : ''}`} 
+                  key={idx}
+                >
+                  <span 
+                    className="text__item" 
+                    id={`item-sort-${idx}`}
+                  >
+                    {item}
+                    <span className="for-a11y">으로 정렬</span>
+                  </span>
+                  <button 
+                    type="button"
+                    className="button__radio sprite"
+                    aria-current={selectedOption === idx}
+                    aria-describedby={`item-sort-${idx}`}
+                    onClick={
+                      ()=>{
+                        setSelectedOption(idx);
+                        setSelectOpen(false);
+                      }
+                    }
+                  >
+                  </button>
+                </li>
+                )
+              }
+            )}
+          </ul>
         </div>
-      }
+        <div className="box__dimmed" aria-hidden="true" onClick={()=>setSelectOpen(false)}>
+          <span className="for-a11y">정렬레이어 딤드배경</span>
+        </div>
+      </div>
     </div>
   )
 }

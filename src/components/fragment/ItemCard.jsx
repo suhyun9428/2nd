@@ -15,7 +15,7 @@ const ImageSection = ({ data }) => {
   return(
     <div className="box__image">
       {data.rank == 1 && <Lottie animationData={animationData} loop={true} className="image__confetti" />}
-      <img src={data.imageUrl} className="image" />
+      <img src={data.imageUrl} className="image" alt={`${data.goodsName} 사진`}/>
       {data.isEmart && data.tagLabels.length !== 0 && (
         <span className="text__label">{data.tagLabels[0].text}</span>
       )}
@@ -30,11 +30,7 @@ const InfoSection = ({ data, isMobile }) => {
   return(
     <div className="box__info">
       {data.isEmart && <AddCounter />}
-      {!isMobile && (data.isEmart ? (
-        <p className="text__title">{data.itemName}</p>
-      ) : (
-        <p className="text__title">{data.goodsName} </p>
-      ))}
+      {!isMobile && <p className="text__title">{data.goodsName}</p>}
       {isMobile ? (
         <div className="box__price">
           {data.hasCoupon ? (
@@ -42,15 +38,18 @@ const InfoSection = ({ data, isMobile }) => {
               <div className="box__coupon-discount">
                 <span className="text__coupon">쿠폰적용가</span>
                 <span className="text__coupon-price">
+                  <span className="for-a11y">원가</span>
                   <del className="text__value">{data.price}</del>
                   <span className="text__unit">원</span>
                 </span>
               </div>
               <div className="box__discount">
+                <span className="for-a11y">할인율</span>
                 <span className="text__discout-precent">
                   {data.discountRate}%
                 </span>
                 <span className="text__discount-price">
+                  <span className="for-a11y">판매가</span>
                   <span className="text__selling-price">
                     {data.discountPrice}
                   </span>
@@ -62,6 +61,7 @@ const InfoSection = ({ data, isMobile }) => {
             <>
               <div className="box__discount">
                 <span className="text__discount-price">
+                  <span className="for-a11y">원가</span>
                   {data.isEmart ? (
                     <del className="text__original-price">{data.price}</del>
                   ) : (
@@ -72,10 +72,12 @@ const InfoSection = ({ data, isMobile }) => {
                   <span className="text__unit">원</span>
                 </span>
               </div>
+              <span className="for-a11y">할인율</span>
               <span className="text__discout-precent">
-                  {data.discountRate}%
-                </span>
+                {data.discountRate}%
+              </span>
               <div className="box__selling-price">
+                <span className="for-a11y">판매가</span>
                 {data.isEmart ? (
                   <span className="text__selling-price">
                     {data.itemPrice.toLocaleString()}
@@ -92,6 +94,7 @@ const InfoSection = ({ data, isMobile }) => {
             <>
               <div className="box__discount">
                 <span className="text__discount-price">
+                  <span className="for-a11y">원가</span>
                   <del className="text__original-price">
                     {data.discountPrice.toLocaleString()}
                   </del>
@@ -99,6 +102,7 @@ const InfoSection = ({ data, isMobile }) => {
                 </span>
               </div>
               <div className="box__selling-price">
+                <span className="for-a11y">판매가</span>
                 {data.isEmart ? (
                   <span className="text__selling-price">
                     {data.sellPrice}
@@ -113,6 +117,7 @@ const InfoSection = ({ data, isMobile }) => {
             </>
           ) : (
             <div className="box__selling-price">
+              <span className="for-a11y">판매가</span>
               {data.isEmart ? (
                 <span className="text__selling-price">
                   {data.sellPrice.toLocaleString()}
@@ -131,15 +136,18 @@ const InfoSection = ({ data, isMobile }) => {
               <div className="box__coupon-discount">
                 <span className="text__coupon">쿠폰적용가</span>
                 <span className="text__coupon-price">
+                  <span className="for-a11y">원가</span>
                   <del className="text__value">{data.price}</del>
                   <span className="text__unit">원</span>
                 </span>
               </div>
               <div className="box__discount">
+                <span className="for-a11y">할인율</span>
                 <span className="text__discout-precent">
                   {data.discountRate}%
                 </span>
                 <span className="text__discount-price">
+                  <span className="for-a11y">판매가</span>
                   <span className="text__selling-price">
                     {data.discountPrice}
                   </span>
@@ -150,10 +158,12 @@ const InfoSection = ({ data, isMobile }) => {
           ) : data.discountRate >= 3 ? (
             <>
               <div className="box__discount">
+                <span className="for-a11y">할인율</span>
                 <span className="text__discout-precent">
                   {data.discountRate}%
                 </span>
                 <span className="text__discount-price">
+                  <span className="for-a11y">원가</span>
                   {data.isEmart ? (
                     <del className="text__original-price">{data.sellPrice}</del>
                   ) : (
@@ -165,6 +175,7 @@ const InfoSection = ({ data, isMobile }) => {
                 </span>
               </div>
               <div className="box__selling-price">
+                <span className="for-a11y">판매가</span>
                 {data.isEmart ? (
                   <span className="text__selling-price">
                     {data.itemPrice.toLocaleString()}
@@ -181,6 +192,7 @@ const InfoSection = ({ data, isMobile }) => {
             <>
               <div className="box__discount">
                 <span className="text__discount-price">
+                  <span className="for-a11y">원가</span>
                   <del className="text__original-price">
                     {data.discountPrice.toLocaleString()}
                   </del>
@@ -188,6 +200,7 @@ const InfoSection = ({ data, isMobile }) => {
                 </span>
               </div>
               <div className="box__selling-price">
+                <span className="for-a11y">판매가</span>
                 {data.isEmart ? (
                   <span className="text__selling-price">
                     {data.sellPrice}
@@ -202,6 +215,7 @@ const InfoSection = ({ data, isMobile }) => {
             </>
           ) : (
             <div className="box__selling-price">
+              <span className="for-a11y">판매가</span>
               {data.isEmart ? (
                 <span className="text__selling-price">
                   {data.sellPrice.toLocaleString()}
@@ -213,8 +227,7 @@ const InfoSection = ({ data, isMobile }) => {
             </div>
           )}
         </div>)
-      }
-      
+      }      
       {isMobile &&  (
         <p className="text__title">{data.goodsName}</p>
       )}
