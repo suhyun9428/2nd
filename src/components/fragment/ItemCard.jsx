@@ -39,7 +39,7 @@ const InfoSection = ({ data, isMobile }) => {
                 <span className="text__coupon">쿠폰적용가</span>
                 <span className="text__coupon-price">
                   <span className="for-a11y">원가</span>
-                  <del className="text__value">{data.price}</del>
+                  <del className="text__value" role="deletion">{data.price}</del>
                   <span className="text__unit">원</span>
                 </span>
               </div>
@@ -50,7 +50,7 @@ const InfoSection = ({ data, isMobile }) => {
                 </span>
                 <span className="text__discount-price">
                   <span className="for-a11y">판매가</span>
-                  <span className="text__selling-price">
+                  <span className="text__selling-price" role="insertion">
                     {data.discountPrice}
                   </span>
                   <span className="text__unit">원</span>
@@ -63,9 +63,9 @@ const InfoSection = ({ data, isMobile }) => {
                 <span className="text__discount-price">
                   <span className="for-a11y">원가</span>
                   {data.isEmart ? (
-                    <del className="text__original-price">{data.price}</del>
+                    <del className="text__original-price" role="deletion">{data.price}</del>
                   ) : (
-                    <del className="text__original-price">
+                    <del className="text__original-price" role="deletion">
                       {data.discountPrice}
                     </del>
                   )}
@@ -79,11 +79,11 @@ const InfoSection = ({ data, isMobile }) => {
               <div className="box__selling-price">
                 <span className="for-a11y">판매가</span>
                 {data.isEmart ? (
-                  <span className="text__selling-price">
+                  <span className="text__selling-price" role="insertion">
                     {data.itemPrice.toLocaleString()}
                   </span>
                 ) : (
-                  <span className="text__selling-price">
+                  <span className="text__selling-price" role="insertion">
                     {data.discountPrice}
                   </span>
                 )}
@@ -95,7 +95,7 @@ const InfoSection = ({ data, isMobile }) => {
               <div className="box__discount">
                 <span className="text__discount-price">
                   <span className="for-a11y">원가</span>
-                  <del className="text__original-price">
+                  <del className="text__original-price" role="deletion">
                     {data.discountPrice.toLocaleString()}
                   </del>
                   <span className="text__unit">원</span>
@@ -104,7 +104,7 @@ const InfoSection = ({ data, isMobile }) => {
               <div className="box__selling-price">
                 <span className="for-a11y">판매가</span>
                 {data.isEmart ? (
-                  <span className="text__selling-price">
+                  <span className="text__selling-price" role="insertion">
                     {data.sellPrice}
                   </span>
                 ) : (
@@ -137,7 +137,7 @@ const InfoSection = ({ data, isMobile }) => {
                 <span className="text__coupon">쿠폰적용가</span>
                 <span className="text__coupon-price">
                   <span className="for-a11y">원가</span>
-                  <del className="text__value">{data.price}</del>
+                  <del className="text__value" role="deletion">{data.price}</del>
                   <span className="text__unit">원</span>
                 </span>
               </div>
@@ -148,7 +148,7 @@ const InfoSection = ({ data, isMobile }) => {
                 </span>
                 <span className="text__discount-price">
                   <span className="for-a11y">판매가</span>
-                  <span className="text__selling-price">
+                  <span className="text__selling-price" role="insertion">
                     {data.discountPrice}
                   </span>
                   <span className="text__unit">원</span>
@@ -165,9 +165,9 @@ const InfoSection = ({ data, isMobile }) => {
                 <span className="text__discount-price">
                   <span className="for-a11y">원가</span>
                   {data.isEmart ? (
-                    <del className="text__original-price">{data.sellPrice}</del>
+                    <del className="text__original-price" role="deletion">{data.sellPrice}</del>
                   ) : (
-                    <del className="text__original-price">
+                    <del className="text__original-price" role="deletion">
                       {data.discountPrice}
                     </del>
                   )}
@@ -177,11 +177,11 @@ const InfoSection = ({ data, isMobile }) => {
               <div className="box__selling-price">
                 <span className="for-a11y">판매가</span>
                 {data.isEmart ? (
-                  <span className="text__selling-price">
+                  <span className="text__selling-price" role="insertion">
                     {data.itemPrice.toLocaleString()}
                   </span>
                 ) : (
-                  <span className="text__selling-price">
+                  <span className="text__selling-price" role="insertion">
                     {data.discountPrice}
                   </span>
                 )}
@@ -193,7 +193,7 @@ const InfoSection = ({ data, isMobile }) => {
               <div className="box__discount">
                 <span className="text__discount-price">
                   <span className="for-a11y">원가</span>
-                  <del className="text__original-price">
+                  <del className="text__original-price" role="deletion">
                     {data.discountPrice.toLocaleString()}
                   </del>
                   <span className="text__unit">원</span>
@@ -202,11 +202,11 @@ const InfoSection = ({ data, isMobile }) => {
               <div className="box__selling-price">
                 <span className="for-a11y">판매가</span>
                 {data.isEmart ? (
-                  <span className="text__selling-price">
+                  <span className="text__selling-price" role="insertion">
                     {data.sellPrice}
                   </span>
                 ) : (
-                  <span className="text__selling-price">
+                  <span className="text__selling-price" role="insertion">
                     {data.price}
                   </span>
                 )}
