@@ -20,11 +20,16 @@ const InputRange = ({ isReset }) => {
   const [maxPercent, setMaxPercent] = useState(0);
 
   const handleMinRange = (e) => {
-    setMinRange(e.target.value);
+    const newMin = Number(e.target.value);
+    if(newMin >= maxRange - gapValue) return;
+    setMinRange(newMin);
   };
   const handleMaxRange = (e) => {
-    setMaxRange(e.target.value);
+    const newMax = Number(e.target.value);
+    if(newMax <= minRange + gapValue) return;
+    setMaxRange(newMax);
   };
+  
   useEffect(() => {
     if (maxRange - minRange < gapValue) {
       setMaxRange(minRange + gapValue);
