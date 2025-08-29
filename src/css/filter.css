@@ -1,0 +1,59 @@
+.box__filtter-wrap {
+  max-width: 768px;
+  margin: 0 auto;
+  background: #fff;
+  .box__category-wrap {
+    .list__options {
+      .list-item {
+        display: flex;
+        padding: 6px 12px;
+        border-bottom: 1px solid #eee;
+        .text__title {
+          width: 100px;
+          font-size: 14px;
+          font-weight: bold;
+          text-align: left;
+        }
+        .box__options-wrap {
+          display: flex;
+          flex: 1;
+          gap: 5px;
+          text-align: left;
+          .button__options {
+            width: max-content;
+            background-color: transparent;
+            border: 0;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .box__filter-options {
+    .list__filter-options {
+      display: flex;
+      gap: 5px;
+      padding: 12px;
+      .list-item {
+        list-style: none;
+        .button__option {
+          height: 32px;
+          border: 1px solid #e0e0e0;
+          border-radius: 6px;
+          padding: 0 8px;
+          font-size: 12px;
+          line-height: 32px;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
+}
+.box__filtter-layer {
+  .box__layer {
+    background-color: #fff;
+  }
+  .box__dimmed {
+    background: gray;
+  }
+}

@@ -7,13 +7,14 @@ import ItemSwiper from "./components/ItemSwiper/ItemSwiper";
 import AriaTest from "./components/AriaTest/AriaContext";
 import FocusTest from "./components/FocusTest/FocusContext";
 import ToastLottie from "./components/ToastLottie/ToastLottie";
+import FilterContents from "./components/FilterLayer/FilterContents";
 import "./App.css";
 
 function App() {
   return (
     <Routes>
       <Route path="/week" element={<Layout />}>
-        <Route index element={<Navigate to="6" replace />} />
+        <Route index element={<Navigate to="7" replace />} />
         <Route path="1" element={<Best />} />
         <Route path="2" element={<Emart />} />
         <Route path="3" element={<Contract />} />
@@ -21,6 +22,7 @@ function App() {
         <Route path="5" element={<AriaTest />} />
         {/* <Route path="5" element={<FocusTest />} /> */}
         <Route path="6" element={<ToastLottie />} />
+        <Route path="7" element={<FilterContents />} />
       </Route>
       <Route path="/" element={<Navigate to="week" replace />} />
     </Routes>
