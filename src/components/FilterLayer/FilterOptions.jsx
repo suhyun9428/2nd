@@ -1,9 +1,10 @@
-import { selectedIndex } from "./atom/atom";
+import { selectedIndex, openLayer } from "./atom/atom";
 import { useAtom } from "jotai";
 
 const FilterOptions = () => {
   const dummyData = ["무료배송", "가격", "공식인증", "필터 더보기"];
   const [isSelected, setIsSelected] = useAtom(selectedIndex);
+  const [isLayerOpen, setIsLayerOpen] = useAtom(openLayer);
 
   return (
     <div className="box__filter-options">
@@ -22,6 +23,13 @@ const FilterOptions = () => {
           );
         })}
       </ul>
+      <button
+        type="button"
+        className="button__open-filter"
+        onClick={() => setIsLayerOpen(true)}
+      >
+        <span className="for-a11y">필터 레이어 열기</span>
+      </button>
     </div>
   );
 };

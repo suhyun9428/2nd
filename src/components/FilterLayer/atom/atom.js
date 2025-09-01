@@ -1,3 +1,7 @@
 import { atom } from "jotai";
 
-export const selectedIndex = atom(0);
+export const selectedIndex = atom({
+  titleIdx: null,
+  selectedItemIdx: null,
+});
+export const openLayer = atom(false);

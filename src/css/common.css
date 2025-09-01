@@ -255,3 +255,9 @@
   --minWidth: 1200px;
   --spriteSize: 100% 100%;
 }
+button {
+  border: 0;
+}
+ul {
+  list-style: none;
+}

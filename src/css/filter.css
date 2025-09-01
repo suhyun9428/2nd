@@ -1,4 +1,4 @@
-.box__filtter-wrap {
+.box__filter-wrap {
   max-width: 768px;
   margin: 0 auto;
   background: #fff;
@@ -20,22 +20,37 @@
           gap: 5px;
           text-align: left;
           .button__options {
+            position: relative;
             width: max-content;
             background-color: transparent;
             border: 0;
             cursor: pointer;
+            &.button__options--active {
+              color: var(--Green-300);
+              font-weight: bold;
+              &::after {
+                content: "";
+                display: inline-block;
+                margin: 5px 0 0 2px;
+                width: 10px;
+                height: 10px;
+                background-color: var(--Green-300);
+                vertical-align: top;
+              }
+            }
           }
         }
       }
     }
   }
   .box__filter-options {
+    position: relative;
+    overflow: hidden;
     .list__filter-options {
       display: flex;
       gap: 5px;
       padding: 12px;
       .list-item {
-        list-style: none;
         .button__option {
           height: 32px;
           border: 1px solid #e0e0e0;
@@ -47,13 +62,139 @@
         }
       }
     }
+    .button__open-filter {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      width: 32px;
+      height: 32px;
+      border: 0;
+      background: pink;
+    }
   }
 }
-.box__filtter-layer {
+.box__filter-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   .box__layer {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: 80%;
+    transition: right 0.3s ease;
     background-color: #fff;
+    .box__layer-header {
+      position: relative;
+      .box__title-wrap {
+        display: flex;
+        height: 48px;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        .text__title {
+          padding-top: 5px;
+          font-size: 18px;
+          line-height: 1;
+        }
+        .button__reset {
+          margin-left: 10px;
+          width: 102px;
+          height: 28px;
+        }
+      }
+      .button__close {
+        position: absolute;
+        right: 0;
+        width: 48px;
+        height: 48px;
+        background: pink;
+        top: 0;
+        border: 0;
+      }
+    }
+    .box__layer-body {
+      border-top: 1px solid #eee;
+      .box__filter-inner {
+        border-bottom: 1px solid #eee;
+        box-sizing: border-box;
+        .button__title {
+          width: 100%;
+          height: 48px;
+          position: relative;
+          padding: 16px;
+          box-sizing: border-box;
+          background: transparent;
+          font-size: 14px;
+          font-weight: bold;
+          text-align: left;
+          line-height: 1;
+          &:after {
+            content: "";
+            position: absolute;
+            top: 16px;
+            right: 22px;
+            width: 1px;
+            height: 1px;
+            padding: 3px;
+            border: solid black;
+            border-width: 0 1px 1px 0;
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+          }
+        }
+        .list__filter {
+          display: none;
+          border-top: 1px solid #eee;
+          .list-item {
+            position: relative;
+            height: 44px;
+            font-size: 14px;
+            text-align: left;
+            padding-left: 16px;
+            line-height: 44px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #eee;
+            input[type="checkbox"] {
+              appearance: none;
+              width: 20px;
+              height: 20px;
+              position: absolute;
+              top: 12px;
+              right: 16px;
+              background: url(../images/snowwhite/snowwhite.png);
+              background-size: 20px auto;
+              vertical-align: top;
+              &:checked {
+                background-position: 0 -22px;
+              }
+            }
+          }
+        }
+        &.box__filter-inner--active {
+          .button__title {
+            &::after {
+              top: 21px;
+              transform: rotate(-135deg);
+              -webkit-transform: rotate(-135deg);
+            }
+          }
+          .list__filter {
+            display: block;
+          }
+        }
+      }
+    }
   }
   .box__dimmed {
-    background: gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.32);
   }
 }
