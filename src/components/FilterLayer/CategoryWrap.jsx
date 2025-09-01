@@ -1,30 +1,41 @@
 import { useEffect } from "react";
-import { selectedIndex } from "./atom/atom";
+import { filterChecked } from "./atom/atom";
 import { useAtom } from "jotai";
 import classNames from "classnames";
 
 const OptionsButtons = ({ data, index }) => {
   const itemList = data.itemList;
-  const [isSelected, setIsSelected] = useAtom(selectedIndex);
+  const [checked, setChecked] = useAtom(filterChecked);
+
+  const handleToggle = (idx) => {
+    const isActive = checked[data.id]?.[idx] || false;
+
+    setChecked((prev) => ({
+      ...prev,
+      [data.id]: {
+        ...prev[data.id],
+        [idx]: !isActive, // 해당 그룹 안에서만 토글
+      },
+    }));
+  };
 
   useEffect(() => {
-    console.log(isSelected, "1");
-  }, [isSelected]);
+    console.log(checked, "1");
+  }, [checked]);
 
   return (
     <div className="box__options-wrap">
       {itemList.map((item, idx) => {
+        const isActive = checked[data.id]?.[idx] || false;
+
         return (
           <button
             type="button"
             className={classNames(
-              "button__options button__options--active"
-              // isSelected({ ...titleIdx }) === idx && "button__options--active"
+              "button__options",
+              isActive && "button__options--active"
             )}
-            onClick={() =>
-              // 여기 토글도 되야 함
-              setIsSelected({ selectedItemIdx: index, titleIdx: idx })
-            }
+            onClick={() => handleToggle(idx)}
             key={`option-${idx}`}
           >
             {item}

@@ -1,41 +1,40 @@
 import "../../css/filter.css";
 import { useState, useEffect } from "react";
-import { selectedIndex, openLayer } from "./atom/atom";
+import { openLayer, filterChecked } from "./atom/atom";
 import { useAtom } from "jotai";
 import classNames from "classnames";
 
 const FilterCheckbox = ({ data, index }) => {
   const itemList = data.itemList;
-  const [isSelected, setIsSelected] = useAtom(selectedIndex);
-  const [checkStates, setCheckStates] = useState(
-    new Array(itemList.length).fill(false)
-  );
+  const [checked, setChecked] = useAtom(filterChecked);
 
   useEffect(() => {
-    console.log(isSelected, "2");
-  }, [isSelected]);
+    console.log(checked, "2");
+  }, [checked]);
 
   const handleCheck = (e, idx) => {
-    const newCheckStates = [...checkStates];
-    newCheckStates[idx] = e.target.checked;
-    setCheckStates(newCheckStates);
+    setChecked((prev) => ({
+      ...prev,
+      [data.id]: {
+        ...prev[data.id],
+        [idx]: e.target.checked,
+      },
+    }));
   };
+
   return (
     <ul className="list__filter">
       {itemList.map((el, idx) => {
         return (
           <li className="list-item" key={`item-${idx}`}>
-            <label htmlFor={`form__${data.id}`}>
+            <label htmlFor={`form__${data.id}-${idx}`}>
               <span className="text">{el}</span>
               <input
                 type="checkbox"
                 name={`form__${data.id}`}
-                id={`form__${data.id}`}
-                onChange={(e) => {
-                  handleCheck(e, idx);
-                  setIsSelected({ selectedItemIdx: index, titleIdx: idx });
-                }}
-                checked={checkStates[idx]}
+                id={`form__${data.id}-${idx}`}
+                onChange={(e) => handleCheck(e, idx)}
+                checked={checked[data.id]?.[idx] || false}
               />
             </label>
           </li>

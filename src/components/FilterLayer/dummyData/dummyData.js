@@ -26,22 +26,5 @@ const dummyData = {
       itemList: ["공식 인증 셀러"],
     },
   ],
-  filterButtonList: [
-    {
-      title: "배송유형",
-      filter: "delivery",
-      itemList: ["오늘출발", "당일배송", "무료배송"],
-    },
-    {
-      title: "가격",
-      filter: "price",
-      itemList: ["전체", "3천원 이하", "3천원 ~ 1만원대"],
-    },
-    {
-      title: "판매처",
-      filter: "seller",
-      itemList: ["공식 인증 셀러"],
-    },
-  ],
 };
 export default dummyData;
