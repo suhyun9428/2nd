@@ -1,60 +1,46 @@
-import "../../css/filter.css";
 import { useState, useEffect } from "react";
-import { openLayer, filterChecked } from "./atom/atom";
-import { useAtom } from "jotai";
-import classNames from "classnames";
+import { useFilter } from "./FilterContext";
+import "../../css/filter.css";
 
 const FilterCheckbox = ({ data }) => {
-  const itemList = data.itemList;
-  const [checked, setChecked] = useAtom(filterChecked);
+  const { checked, setChecked } = useFilter();
 
-  useEffect(() => {
-    console.log(checked, "2");
-  }, [checked]);
-
-  const handleCheck = (e, idx) => {
+  const handleCheck = (groupId, idx, value) => {
     setChecked((prev) => ({
       ...prev,
-      [data.id]: {
-        ...prev[data.id],
-        [idx]: e.target.checked,
+      [groupId]: {
+        ...prev[groupId],
+        [idx]: value,
       },
     }));
   };
 
   return (
     <>
-      {itemList.map((el, idx) => {
-        return (
-          <li className="list-item" key={`item-${idx}`}>
-            <label htmlFor={`form__${data.id}-${idx}`}>
-              {el.text !== undefined ? (
-                <span className="text">{el.text}</span>
-              ) : (
-                <span className="text">{el}</span>
-              )}
-              <input
-                type="checkbox"
-                name={`form__${data.id}`}
-                id={`form__${data.id}-${idx}`}
-                onChange={(e) => handleCheck(e, idx)}
-                checked={checked[data.id]?.[idx] || false}
-              />
-            </label>
-          </li>
-        );
-      })}
+      {data.itemList.map((el, idx) => (
+        <li className="list-item" key={`item-${idx}`}>
+          <label htmlFor={`form__${data.id}-${idx}`}>
+            <span className="text">{el.text ?? el}</span>
+            <input
+              type="checkbox"
+              name={`form__${data.id}`}
+              id={`form__${data.id}-${idx}`}
+              onChange={(e) => handleCheck(data.id, idx, e.target.checked)}
+              checked={checked[data.id]?.[idx] || false}
+            />
+          </label>
+        </li>
+      ))}
     </>
   );
 };
 
 const FilterLayer = ({ data, buttonData }) => {
-  const [isLayerOpen, setIsLayerOpen] = useAtom(openLayer);
+  const { setIsLayerOpen, setChecked } = useFilter();
   const newData = [...data, ...buttonData];
   const [isListOpen, setIsListOpen] = useState(
     new Array(newData.length).fill(false)
   );
-  const [checked, setChecked] = useAtom(filterChecked);
 
   const handleToggle = (e, idx) => {
     const newToggleOpen = [...isListOpen];
@@ -72,10 +58,6 @@ const FilterLayer = ({ data, buttonData }) => {
     setIsListOpen(newToggleOpen);
   };
 
-  const handleReset = () => {
-    setChecked({});
-  };
-
   return (
     <div className="box__filter-layer">
       <div className="box__layer">
@@ -85,7 +67,7 @@ const FilterLayer = ({ data, buttonData }) => {
             <button
               type="button"
               className="button__reset"
-              onClick={() => handleReset()}
+              onClick={() => setChecked({})}
             >
               모두 지우기
             </button>
@@ -99,22 +81,20 @@ const FilterLayer = ({ data, buttonData }) => {
           </button>
         </div>
         <div className="box__layer-body">
-          {newData.map((item, idx) => {
-            return (
-              <div className="box__filter-inner" key={`filter-${idx}`}>
-                <button
-                  type="button"
-                  className="button__title"
-                  onClick={(e) => handleToggle(e, idx)}
-                >
-                  <span className="text__title">{item.title}</span>
-                </button>
-                <ul className="list__filter">
-                  <FilterCheckbox data={item} />
-                </ul>
-              </div>
-            );
-          })}
+          {newData.map((item, idx) => (
+            <div className="box__filter-inner" key={`filter-${idx}`}>
+              <button
+                type="button"
+                className="button__title"
+                onClick={(e) => handleToggle(e, idx)}
+              >
+                <span className="text__title">{item.title}</span>
+              </button>
+              <ul className="list__filter">
+                <FilterCheckbox data={item} />
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
       <div className="box__dimmed" onClick={() => setIsLayerOpen(false)}></div>

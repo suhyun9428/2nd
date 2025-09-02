@@ -1,27 +1,28 @@
-import { openLayer, filterChecked } from "./atom/atom";
-import { useAtom } from "jotai";
 import classNames from "classnames";
+import { useFilter } from "./FilterContext";
 
 const FilterOptions = ({ data }) => {
-  const [isLayerOpen, setIsLayerOpen] = useAtom(openLayer);
-  const [checked, setChecked] = useAtom(filterChecked);
+  const { setIsLayerOpen } = useFilter();
+  const { checked, setChecked } = useFilter();
 
   const filteredData = data.map((item) => ({
     ...item,
     itemList: item.itemList.filter((option) => option.isShow === true),
   }));
 
-  const handleToggle = (itemId, idx) => {
-    const isActive = checked[itemId]?.[idx] || false;
-
+  const handleToggle = (groupId, idx) => {
     setChecked((prev) => ({
       ...prev,
-      [itemId]: {
-        ...prev[itemId],
-        [idx]: !isActive, // 해당 그룹 안에서만 토글
+      [groupId]: {
+        ...prev[groupId],
+        [idx]: !prev[groupId]?.[idx],
       },
     }));
   };
+
+  const isAnyChecked = Object.values(checked).some((group) =>
+    Object.values(group).some((v) => v === true)
+  );
 
   return (
     <div className="box__filter-options">
@@ -46,7 +47,7 @@ const FilterOptions = ({ data }) => {
         type="button"
         className={classNames(
           "button__open-filter",
-          Object.keys(checked).length && "button__open-filter--active"
+          isAnyChecked && "button__open-filter--active"
         )}
         onClick={() => setIsLayerOpen(true)}
       >
