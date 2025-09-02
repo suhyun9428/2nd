@@ -13,9 +13,14 @@ const FilterContents = () => {
     <>
       <div className="box__filter-wrap">
         <CategoryWrap data={dummyData.filterList} />
-        <FilterOptions data={dummyData.filterList} />
+        <FilterOptions data={dummyData.filterButtonList} />
       </div>
-      {isLayerOpen && <FilterLayer data={dummyData.filterList} />}
+      {isLayerOpen && (
+        <FilterLayer
+          data={dummyData.filterList}
+          buttonData={dummyData.filterButtonList}
+        />
+      )}
     </>
   );
 };

@@ -4,7 +4,7 @@ import { openLayer, filterChecked } from "./atom/atom";
 import { useAtom } from "jotai";
 import classNames from "classnames";
 
-const FilterCheckbox = ({ data, index }) => {
+const FilterCheckbox = ({ data }) => {
   const itemList = data.itemList;
   const [checked, setChecked] = useAtom(filterChecked);
 
@@ -23,12 +23,16 @@ const FilterCheckbox = ({ data, index }) => {
   };
 
   return (
-    <ul className="list__filter">
+    <>
       {itemList.map((el, idx) => {
         return (
           <li className="list-item" key={`item-${idx}`}>
             <label htmlFor={`form__${data.id}-${idx}`}>
-              <span className="text">{el}</span>
+              {el.text !== undefined ? (
+                <span className="text">{el.text}</span>
+              ) : (
+                <span className="text">{el}</span>
+              )}
               <input
                 type="checkbox"
                 name={`form__${data.id}`}
@@ -40,16 +44,20 @@ const FilterCheckbox = ({ data, index }) => {
           </li>
         );
       })}
-    </ul>
+    </>
   );
 };
 
-const FilterLayer = ({ data }) => {
+const FilterLayer = ({ data, buttonData }) => {
   const [isLayerOpen, setIsLayerOpen] = useAtom(openLayer);
-  const [isOpen, setIsOpen] = useState(new Array(data.length).fill(false));
+  const newData = [...data, ...buttonData];
+  const [isListOpen, setIsListOpen] = useState(
+    new Array(newData.length).fill(false)
+  );
+  const [checked, setChecked] = useAtom(filterChecked);
 
   const handleToggle = (e, idx) => {
-    const newToggleOpen = [...isOpen];
+    const newToggleOpen = [...isListOpen];
     if (!newToggleOpen[idx]) {
       newToggleOpen[idx] = true;
       e.target.parentElement.classList.add("box__filter-inner--active");
@@ -61,11 +69,11 @@ const FilterLayer = ({ data }) => {
         e.target.parentElement.classList.remove("box__filter-inner--active");
       }
     }
-    setIsOpen(newToggleOpen);
+    setIsListOpen(newToggleOpen);
   };
 
   const handleReset = () => {
-    console.log("체크박스 선택한거 다 날려용");
+    setChecked({});
   };
 
   return (
@@ -91,7 +99,7 @@ const FilterLayer = ({ data }) => {
           </button>
         </div>
         <div className="box__layer-body">
-          {data.map((item, idx) => {
+          {newData.map((item, idx) => {
             return (
               <div className="box__filter-inner" key={`filter-${idx}`}>
                 <button
@@ -101,7 +109,9 @@ const FilterLayer = ({ data }) => {
                 >
                   <span className="text__title">{item.title}</span>
                 </button>
-                <FilterCheckbox data={item} index={idx} />
+                <ul className="list__filter">
+                  <FilterCheckbox data={item} />
+                </ul>
               </div>
             );
           })}

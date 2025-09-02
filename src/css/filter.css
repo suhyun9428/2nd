@@ -1,13 +1,13 @@
 .box__filter-wrap {
   max-width: 768px;
   margin: 0 auto;
-  background: #fff;
+  background: var(--white);
   .box__category-wrap {
     .list__options {
       .list-item {
         display: flex;
         padding: 6px 12px;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--Gray-200);
         .text__title {
           width: 100px;
           font-size: 14px;
@@ -32,9 +32,12 @@
                 content: "";
                 display: inline-block;
                 margin: 5px 0 0 2px;
-                width: 10px;
-                height: 10px;
-                background-color: var(--Green-300);
+                width: 16px;
+                height: 16px;
+                background: url(../images/snowwhite/snowwhite.png);
+                background-size: auto 42px;
+                background-repeat: no-repeat;
+                background-position: -20px -14px;
                 vertical-align: top;
               }
             }
@@ -53,23 +56,45 @@
       .list-item {
         .button__option {
           height: 32px;
-          border: 1px solid #e0e0e0;
+          border: 1px solid var(--Gray-300);
           border-radius: 6px;
           padding: 0 8px;
           font-size: 12px;
           line-height: 32px;
           box-sizing: border-box;
+          &.button__option--active {
+            background-color: var(--Green-300);
+            color: var(--white);
+          }
         }
       }
     }
     .button__open-filter {
       position: absolute;
-      right: 12px;
-      top: 12px;
+      right: 18px;
+      top: 18px;
       width: 32px;
       height: 32px;
-      border: 0;
-      background: pink;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 6px;
+      box-sizing: border-box;
+      &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url(../images/snowwhite/snowwhite.png);
+        background-size: auto 42px;
+        background-repeat: no-repeat;
+        background-position: -34px 1px;
+      }
+      &.button__open-filter--active {
+        border-color: var(--Green-300);
+        &::before {
+          background-position: -34px -17px;
+        }
+      }
     }
   }
 }
@@ -87,7 +112,7 @@
     left: auto;
     width: 80%;
     transition: right 0.3s ease;
-    background-color: #fff;
+    background-color: var(--white);
     .box__layer-header {
       position: relative;
       .box__title-wrap {
@@ -104,22 +129,38 @@
           margin-left: 10px;
           width: 102px;
           height: 28px;
+          font-size: 13px;
+          line-height: 1;
+          &::before {
+            content: "";
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background: url(../images/snowwhite/snowwhite.png);
+            background-size: auto 42px;
+            background-position: -22px -1px;
+            background-repeat: no-repeat;
+            vertical-align: top;
+          }
         }
       }
       .button__close {
         position: absolute;
-        right: 0;
-        width: 48px;
-        height: 48px;
-        background: pink;
-        top: 0;
+        top: 14px;
+        right: 16px;
+        width: 22px;
+        height: 22px;
         border: 0;
+        background: url(../images/snowwhite/snowwhite.png);
+        background-size: auto 42px;
+        background-position: -53px 2px;
+        background-repeat: no-repeat;
       }
     }
     .box__layer-body {
-      border-top: 1px solid #eee;
+      border-top: 1px solid var(--Gray-200);
       .box__filter-inner {
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--Gray-200);
         box-sizing: border-box;
         .button__title {
           width: 100%;
@@ -140,7 +181,7 @@
             width: 1px;
             height: 1px;
             padding: 3px;
-            border: solid black;
+            border: solid var(--black);
             border-width: 0 1px 1px 0;
             transform: rotate(45deg);
             -webkit-transform: rotate(45deg);
@@ -148,7 +189,7 @@
         }
         .list__filter {
           display: none;
-          border-top: 1px solid #eee;
+          border-top: 1px solid var(--Gray-200);
           .list-item {
             position: relative;
             height: 44px;
@@ -157,7 +198,7 @@
             padding-left: 16px;
             line-height: 44px;
             box-sizing: border-box;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--Gray-200);
             input[type="checkbox"] {
               appearance: none;
               width: 20px;
@@ -166,7 +207,7 @@
               top: 12px;
               right: 16px;
               background: url(../images/snowwhite/snowwhite.png);
-              background-size: 20px auto;
+              background-size: auto 42px;
               vertical-align: top;
               &:checked {
                 background-position: 0 -22px;
