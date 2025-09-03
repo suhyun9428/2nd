@@ -2,22 +2,19 @@ import classNames from "classnames";
 import { useFilter } from "./FilterContext";
 
 const FilterOptions = ({ data }) => {
-  const { setIsLayerOpen } = useFilter();
-  const { checked, setChecked } = useFilter();
+  const { state, dispatch } = useFilter();
+  const { checked } = state;
 
   const filteredData = data.map((item) => ({
     ...item,
     itemList: item.itemList.filter((option) => option.isShow === true),
   }));
 
-  const handleToggle = (groupId, idx) => {
-    setChecked((prev) => ({
-      ...prev,
-      [groupId]: {
-        ...prev[groupId],
-        [idx]: !prev[groupId]?.[idx],
-      },
-    }));
+  const handleToggle = (idx) => {
+    dispatch({
+      type: "TOGGLE_CHECK",
+      payload: { groupId: data.id, idx },
+    });
   };
 
   const isAnyChecked = Object.values(checked).some((group) =>
@@ -35,7 +32,7 @@ const FilterOptions = ({ data }) => {
                   "button__option",
                   checked[item.id]?.[idx] && "button__option--active"
                 )}
-                onClick={() => handleToggle(item.id, idx)}
+                onClick={() => handleToggle(idx)}
               >
                 {option.text}
               </button>
@@ -49,7 +46,7 @@ const FilterOptions = ({ data }) => {
           "button__open-filter",
           isAnyChecked && "button__open-filter--active"
         )}
-        onClick={() => setIsLayerOpen(true)}
+        onClick={() => dispatch({ type: "TOGGLE_LAYER" })}
       >
         <span className="for-a11y">필터 레이어 열기</span>
       </button>

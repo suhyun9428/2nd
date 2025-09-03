@@ -6,14 +6,15 @@ import dummyData from "./dummyData/dummyData";
 import "../../css/filter.css";
 
 const FilterContainer = () => {
-  const { isLayerOpen } = useFilter();
+  const { state } = useFilter();
+
   return (
     <>
       <div className="box__filter-wrap">
         <CategoryWrap data={dummyData.filterList} />
         <FilterOptions data={dummyData.filterButtonList} />
       </div>
-      {isLayerOpen && (
+      {state.isLayerOpen && (
         <FilterLayer
           data={dummyData.filterList}
           buttonData={dummyData.filterButtonList}

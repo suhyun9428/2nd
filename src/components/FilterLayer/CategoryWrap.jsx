@@ -2,16 +2,14 @@ import { useFilter } from "./FilterContext";
 import classNames from "classnames";
 
 export function OptionsButtons({ data }) {
-  const { checked, setChecked } = useFilter();
+  const { state, dispatch } = useFilter();
+  const { checked } = state;
 
-  const handleToggle = (groupId, idx) => {
-    setChecked((prev) => ({
-      ...prev,
-      [groupId]: {
-        ...prev[groupId],
-        [idx]: !prev[groupId]?.[idx],
-      },
-    }));
+  const handleToggle = (idx) => {
+    dispatch({
+      type: "TOGGLE_CHECK",
+      payload: { groupId: data.id, idx },
+    });
   };
 
   return (
@@ -25,7 +23,7 @@ export function OptionsButtons({ data }) {
               "button__options",
               isActive && "button__options--active"
             )}
-            onClick={() => handleToggle(data.id, idx)}
+            onClick={() => handleToggle(idx)}
             key={`option-${idx}`}
           >
             {item}

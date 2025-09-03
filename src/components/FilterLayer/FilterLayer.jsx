@@ -1,18 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useFilter } from "./FilterContext";
 import "../../css/filter.css";
 
 const FilterCheckbox = ({ data }) => {
-  const { checked, setChecked } = useFilter();
+  const { state, dispatch } = useFilter();
 
-  const handleCheck = (groupId, idx, value) => {
-    setChecked((prev) => ({
-      ...prev,
-      [groupId]: {
-        ...prev[groupId],
-        [idx]: value,
-      },
-    }));
+  const handleCheck = (idx) => {
+    dispatch({
+      type: "TOGGLE_CHECK",
+      payload: { groupId: data.id, idx },
+    });
   };
 
   return (
@@ -25,8 +22,8 @@ const FilterCheckbox = ({ data }) => {
               type="checkbox"
               name={`form__${data.id}`}
               id={`form__${data.id}-${idx}`}
-              onChange={(e) => handleCheck(data.id, idx, e.target.checked)}
-              checked={checked[data.id]?.[idx] || false}
+              onChange={() => handleCheck(idx)}
+              checked={!!state.checked[data.id]?.[idx]}
             />
           </label>
         </li>
@@ -36,7 +33,7 @@ const FilterCheckbox = ({ data }) => {
 };
 
 const FilterLayer = ({ data, buttonData }) => {
-  const { setIsLayerOpen, setChecked } = useFilter();
+  const { dispatch } = useFilter();
   const newData = [...data, ...buttonData];
   const [isListOpen, setIsListOpen] = useState(
     new Array(newData.length).fill(false)
@@ -67,7 +64,7 @@ const FilterLayer = ({ data, buttonData }) => {
             <button
               type="button"
               className="button__reset"
-              onClick={() => setChecked({})}
+              onClick={() => dispatch({ type: "SET_CHECKED", payload: {} })}
             >
               모두 지우기
             </button>
@@ -75,7 +72,7 @@ const FilterLayer = ({ data, buttonData }) => {
           <button
             type="button"
             className="button__close"
-            onClick={() => setIsLayerOpen(false)}
+            onClick={() => dispatch({ type: "TOGGLE_LAYER" })}
           >
             <span className="for-a11y">필터 레이어 닫기</span>
           </button>
