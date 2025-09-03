@@ -9,35 +9,40 @@
         padding: 6px 12px;
         border-bottom: 1px solid var(--Gray-200);
         .text__title {
-          width: 100px;
+          width: 70px;
           font-size: 14px;
           font-weight: bold;
           text-align: left;
         }
         .box__options-wrap {
           display: flex;
+          width: calc(100% - 70px);
           flex: 1;
           gap: 5px;
           text-align: left;
+          overflow-y: scroll;
           .button__options {
             position: relative;
             width: max-content;
             background-color: transparent;
             border: 0;
             cursor: pointer;
+            font-size: 12px;
+            line-height: 14px;
+            white-space: nowrap;
             &.button__options--active {
               color: var(--Green-300);
               font-weight: bold;
               &::after {
                 content: "";
                 display: inline-block;
-                margin: 5px 0 0 2px;
-                width: 16px;
-                height: 16px;
+                margin: -2px 0 0 2px;
+                width: 14px;
+                height: 14px;
                 background: url(../images/snowwhite/snowwhite.png);
                 background-size: auto 42px;
                 background-repeat: no-repeat;
-                background-position: -20px -14px;
+                background-position: -20px -12px;
                 vertical-align: top;
               }
             }
