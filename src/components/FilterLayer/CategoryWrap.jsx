@@ -35,10 +35,11 @@ export function OptionsButtons({ data }) {
 }
 
 const CategoryWrap = ({ data }) => {
+  console.log(data, "data");
   return (
     <div className="box__category-wrap">
       <ul className="list__options">
-        {data.map((item, idx) => {
+        {data?.map((item, idx) => {
           return (
             <li className="list-item" key={`item--${idx}`}>
               <span className="text__title">{item.title}</span>

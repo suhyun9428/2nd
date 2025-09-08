@@ -1,0 +1,21 @@
+.box__error {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  .text__icon {
+    font-size: 48px;
+  }
+  .text__error {
+    font-size: 26px;
+  }
+  .button__reset {
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background: transparent;
+    font-size: 28px;
+  }
+}

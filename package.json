@@ -11,12 +11,14 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.87.1",
     "classnames": "^2.5.1",
     "jotai": "^2.12.5",
     "lottie": "^0.0.1",
     "lottie-react": "^2.4.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-error-boundary": "^6.0.0",
     "react-router-dom": "^7.6.2",
     "styled": "^1.0.0",
     "styled-components": "^6.1.19",

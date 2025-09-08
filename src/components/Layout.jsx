@@ -26,6 +26,10 @@ const Layout = () => {
       text: "토스트, 로띠",
       path: "6",
     },
+    {
+      text: "SRP 버튼 연동",
+      path: "7",
+    },
   ];
   return (
     <div className="box__second-terms">
