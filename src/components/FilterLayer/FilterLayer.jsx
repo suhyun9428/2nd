@@ -1,16 +1,24 @@
-import { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { useFilter } from "./FilterContext";
 import "../../css/filter.css";
 
-const FilterCheckbox = ({ data }) => {
+const FilterCheckbox = React.memo(({ data }) => {
   const { state, dispatch } = useFilter();
 
-  const handleCheck = (idx) => {
-    dispatch({
-      type: "TOGGLE_CHECK",
-      payload: { groupId: data.id, idx },
-    });
-  };
+  const handleCheck = useCallback(
+    (idx) => {
+      dispatch({
+        type: "TOGGLE_CHECK",
+        payload: { groupId: data.id, idx },
+      });
+    },
+    [dispatch, data.id]
+  );
+
+  const checkedItems = useMemo(
+    () => state.checked[data.id] ?? {},
+    [state.checked, data.id]
+  );
 
   return (
     <>
@@ -23,14 +31,14 @@ const FilterCheckbox = ({ data }) => {
               name={`form__${data.id}`}
               id={`form__${data.id}-${idx}`}
               onChange={() => handleCheck(idx)}
-              checked={!!state.checked[data.id]?.[idx]}
+              checked={!!checkedItems[idx]}
             />
           </label>
         </li>
       ))}
     </>
   );
-};
+});
 
 const FilterLayer = ({ data, buttonData }) => {
   const { dispatch } = useFilter();
@@ -39,21 +47,14 @@ const FilterLayer = ({ data, buttonData }) => {
     new Array(newData.length).fill(false)
   );
 
-  const handleToggle = (e, idx) => {
-    const newToggleOpen = [...isListOpen];
-    if (!newToggleOpen[idx]) {
-      newToggleOpen[idx] = true;
-      e.target.parentElement.classList.add("box__filter-inner--active");
-    } else {
-      newToggleOpen[idx] = false;
-      if (
-        e.target.parentElement.classList.contains("box__filter-inner--active")
-      ) {
-        e.target.parentElement.classList.remove("box__filter-inner--active");
-      }
-    }
-    setIsListOpen(newToggleOpen);
-  };
+  const handleToggle = useCallback((e, idx) => {
+    setIsListOpen((prev) => {
+      const newToggleOpen = [...prev];
+      newToggleOpen[idx] = !newToggleOpen[idx];
+      return newToggleOpen;
+    });
+    e.target.parentElement.classList.toggle("box__filter-inner--active");
+  }, []);
 
   return (
     <div className="box__filter-layer">
@@ -98,4 +99,4 @@ const FilterLayer = ({ data, buttonData }) => {
     </div>
   );
 };
-export default FilterLayer;
+export default React.memo(FilterLayer);

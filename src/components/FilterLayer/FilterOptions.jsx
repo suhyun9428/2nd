@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useFilter } from "./FilterContext";
+import { useCallback, useMemo } from "react";
 
 const FilterOptions = ({ data }) => {
   const { state, dispatch } = useFilter();
@@ -10,29 +11,40 @@ const FilterOptions = ({ data }) => {
     itemList: item.itemList.filter((option) => option.isShow === true),
   }));
 
-  const handleToggle = (idx) => {
-    dispatch({
-      type: "TOGGLE_CHECK",
-      payload: { groupId: data.id, idx },
-    });
-  };
-
-  const isAnyChecked = Object.values(checked).some((group) =>
-    Object.values(group).some((v) => v === true)
+  const handleToggle = useCallback(
+    (groupId, idx) => {
+      dispatch({
+        type: "TOGGLE_CHECK",
+        payload: { groupId, idx },
+      });
+    },
+    [dispatch]
   );
+
+  const isAnyChecked = useMemo(() => {
+    return Object.values(checked).some((group) =>
+      Object.values(group).some((v) => v === true)
+    );
+  }, [checked]);
+
+  const activeMapList = useMemo(() => {
+    return filteredData.map((item) =>
+      item.itemList.map((_, idx) => !!checked[item.id]?.[idx])
+    );
+  }, [checked, filteredData]);
 
   return (
     <div className="box__filter-options">
       <ul className="list__filter-options">
-        {filteredData.map((item) =>
+        {filteredData.map((item, itemIdx) =>
           item.itemList.map((option, idx) => (
             <li className="list-item" key={idx}>
               <button
                 className={classNames(
                   "button__option",
-                  checked[item.id]?.[idx] && "button__option--active"
+                  activeMapList[itemIdx][idx] && "button__option--active"
                 )}
-                onClick={() => handleToggle(idx)}
+                onClick={() => handleToggle(item.id, idx)}
               >
                 {option.text}
               </button>

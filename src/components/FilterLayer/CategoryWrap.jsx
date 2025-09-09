@@ -1,7 +1,8 @@
 import { useFilter } from "./FilterContext";
 import classNames from "classnames";
+import React from "react";
 
-export function OptionsButtons({ data }) {
+const OptionsButtons = React.memo(({ data }) => {
   const { state, dispatch } = useFilter();
   const { checked } = state;
 
@@ -32,10 +33,9 @@ export function OptionsButtons({ data }) {
       })}
     </div>
   );
-}
+});
 
 const CategoryWrap = ({ data }) => {
-  console.log(data, "data");
   return (
     <div className="box__category-wrap">
       <ul className="list__options">
