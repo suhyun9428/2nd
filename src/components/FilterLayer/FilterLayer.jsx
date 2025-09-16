@@ -41,11 +41,19 @@ const FilterCheckbox = React.memo(({ data }) => {
 });
 
 const FilterLayer = ({ data, buttonData }) => {
-  const { dispatch } = useFilter();
+  const { state, dispatch } = useFilter();
   const newData = [...data, ...buttonData];
+  
   const [isListOpen, setIsListOpen] = useState(
     new Array(newData.length).fill(false)
   );
+ 
+  const computedData = useMemo(() => {
+    return newData.map(item => ({
+      ...item,
+      checked: state.checked[item.id] ?? {},
+    }));
+  }, [newData, state.checked]);
 
   const handleToggle = useCallback((e, idx) => {
     setIsListOpen((prev) => {
@@ -53,7 +61,7 @@ const FilterLayer = ({ data, buttonData }) => {
       newToggleOpen[idx] = !newToggleOpen[idx];
       return newToggleOpen;
     });
-    e.target.parentElement.classList.toggle("box__filter-inner--active");
+    // e.target.parentElement.classList.toggle("box__filter-inner--active");
   }, []);
 
   return (
@@ -79,8 +87,8 @@ const FilterLayer = ({ data, buttonData }) => {
           </button>
         </div>
         <div className="box__layer-body">
-          {newData.map((item, idx) => (
-            <div className="box__filter-inner" key={`filter-${idx}`}>
+          {computedData.map((item, idx) => (
+            <div className={`box__filter-inner ${isListOpen[idx] ? "box__filter-inner--active" : ""}`} key={`filter-${item.id}`}>
               <button
                 type="button"
                 className="button__title"
@@ -95,7 +103,7 @@ const FilterLayer = ({ data, buttonData }) => {
           ))}
         </div>
       </div>
-      <div className="box__dimmed" onClick={() => setIsLayerOpen(false)}></div>
+      <div className="box__dimmed" onClick={() => dispatch({ type: "TOGGLE_LAYER" })}></div>
     </div>
   );
 };
