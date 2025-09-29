@@ -357,6 +357,7 @@ const dummyData = {
   ],
   items: [
     {
+      categoryNumber: 0,
       hasCoupon: true,
       buyCount: 1384,
       goodsName:
@@ -388,6 +389,7 @@ const dummyData = {
       lmos: ["결제할인 3%"],
     },
     {
+      categoryNumber: 0,
       hasCoupon: true,
       goodsName: "인기 사발면 더블팩 (육개장+김치 / 24개)",
       sellPrice: 29900,
@@ -417,6 +419,7 @@ const dummyData = {
       lmos: ["결제할인 3%"],
     },
     {
+      categoryNumber: 0,
       hasCoupon: false,
       goodsName:
         "라인바싸 탄산수 500ml PET 3종 택 2박스 (총40입) 먹는샘물로 만들어 미네랄이 살아있는 강탄산수",
@@ -447,6 +450,7 @@ const dummyData = {
       lmos: ["결제할인 3%"],
     },
     {
+      categoryNumber: 0,
       hasCoupon: false,
       goodsName:
         "30%+12%)무료반품 플라스틱아일랜드 여름신상 인기 하루 한정 특가 100종",
@@ -477,6 +481,7 @@ const dummyData = {
       lmos: ["결제할인 3%"],
     },
     {
+      categoryNumber: 0,
       hasCoupon: false,
       goodsName:
         "(무료반품+20+10%) 6930원~ 다온샵 깜짝특가/텐셀진/빅사이즈~3XL/청바지/스판/밴딩/슬랙스/반바지/쿨링",
@@ -507,9 +512,10 @@ const dummyData = {
       lmos: ["결제할인 3%"],
     },
     {
+      categoryNumber: 1,
       hasCoupon: false,
       goodsName:
-        "(혜택가5170원~15%+10%쿠폰)게스키즈 여름 나시/반팔티/반바지/원피스/스커트 외 ~87%OFF",
+        "1111(혜택가5170원~15%+10%쿠폰)게스키즈 여름 나시/반팔티/반바지/원피스/스커트 외 ~87%OFF",
       sellPrice: 42000,
       linkUrl: "//mitem.gmarket.co.kr/Item?goodscode=4317957849",
       discountPrice: "12,800",
@@ -537,9 +543,10 @@ const dummyData = {
       lmos: ["결제할인 3%"],
     },
     {
+      categoryNumber: 1,
       hasCoupon: false,
       goodsName:
-        "30%+12%)무료반품 플라스틱아일랜드 여름신상 인기 하루 한정 특가 100종",
+        "1111 30%+12%)무료반품 플라스틱아일랜드 여름신상 인기 하루 한정 특가 100종",
       sellPrice: 74000,
       linkUrl: "//mitem.gmarket.co.kr/Item?goodscode=1925195363",
       discountPrice: "72,520",
@@ -567,9 +574,10 @@ const dummyData = {
       lmos: ["결제할인 3%"],
     },
     {
+      categoryNumber: 1,
       hasCoupon: false,
       goodsName:
-        "(무료반품+20+10%) 6930원~ 다온샵 깜짝특가/텐셀진/빅사이즈~3XL/청바지/스판/밴딩/슬랙스/반바지/쿨링",
+        "1111 (무료반품+20+10%) 6930원~ 다온샵 깜짝특가/텐셀진/빅사이즈~3XL/청바지/스판/밴딩/슬랙스/반바지/쿨링",
       sellPrice: 46300,
       linkUrl: "//mitem.gmarket.co.kr/Item?goodscode=2664229438",
       discountPrice: 46300,
@@ -597,9 +605,10 @@ const dummyData = {
       lmos: ["결제할인 3%"],
     },
     {
+      categoryNumber: 1,
       hasCoupon: false,
       goodsName:
-        "(혜택가5170원~15%+10%쿠폰)게스키즈 여름 나시/반팔티/반바지/원피스/스커트 외 ~87%OFF",
+        "1111 (혜택가5170원~15%+10%쿠폰)게스키즈 여름 나시/반팔티/반바지/원피스/스커트 외 ~87%OFF",
       sellPrice: 42000,
       linkUrl: "//mitem.gmarket.co.kr/Item?goodscode=4317957849",
       discountPrice: "12,800",
@@ -627,9 +636,10 @@ const dummyData = {
       lmos: ["결제할인 3%"],
     },
     {
+      categoryNumber: 2,
       hasCoupon: false,
       goodsName:
-        "(혜택가5170원~15%+10%쿠폰)게스키즈 여름 나시/반팔티/반바지/원피스/스커트 외 ~87%OFF",
+        "2222 (혜택가5170원~15%+10%쿠폰)게스키즈 여름 나시/반팔티/반바지/원피스/스커트 외 ~87%OFF",
       sellPrice: 42000,
       linkUrl: "//mitem.gmarket.co.kr/Item?goodscode=4317957849",
       discountPrice: "12,800",

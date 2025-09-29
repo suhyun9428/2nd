@@ -4,11 +4,13 @@
   height: 180px;
   border-radius: 8px;
   overflow: hidden;
+
   .image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
   .text__label {
     position: absolute;
     top: 0;
@@ -24,17 +26,18 @@
     color: #fff;
     line-height: 16px;
   }
-  .image__confetti{
+
+  .image__confetti {
     display: none;
   }
 }
 
-.page__mobile{
-  .box__items-wrap{
-    .list__items{
-      .list-item{
-        .box__image{
-          .text__label{
+.page__mobile {
+  .box__items-wrap {
+    .list__items {
+      .list-item {
+        .box__image {
+          .text__label {
             width: 24px;
             height: 24px;
             padding: 0;
@@ -43,46 +46,53 @@
             line-height: 24px;
           }
         }
-        .link__minishop{
+
+        .link__minishop {
           display: inline-block;
           margin-top: 8px;
           font-size: 0;
-          .text__minishop{
+
+          .text__minishop {
             display: inline-block;
             font-size: 12px;
             color: var(--Gray-700);
             line-height: 16px;
             vertical-align: top;
           }
-          &::before{
+
+          &::before {
             content: "";
             display: inline-block;
             width: 16px;
             height: 16px;
             margin-right: 2px;
-            background-image: url(https://starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#icon__shop-16);
+            background-image: url(https://script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#icon__shop-16);
             background-size: 100% 100%;
           }
-          &::after{
+
+          &::after {
             content: "";
             display: inline-block;
             width: 4px;
             height: 7px;
             margin: 4px 0 4px 2px;
-            background-image: url(https://starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#gds-chevron-right);
+            background-image: url(https://script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#gds-chevron-right);
             background-size: 100% 100%;
           }
         }
-        &.list-item--rank1{
+
+        &.list-item--rank1 {
           width: auto;
           margin: 24px 90px;
           flex-basis: 100%;
-          .box__image{
+
+          .box__image {
             width: auto;
             height: auto;
             top: 0;
             padding-bottom: 100%;
-            .image__confetti{
+
+            .image__confetti {
               display: block;
               width: calc(100% + 180px);
               height: auto !important;
@@ -92,7 +102,8 @@
               transform: translate(-50%);
               z-index: 10;
             }
-            .image{
+
+            .image {
               width: 100%;
               height: auto;
               border-radius: 8px;
@@ -101,16 +112,17 @@
               left: 50%;
               transform: translate(-50%, -50%);
             }
-            .text__label{
+
+            .text__label {
               width: 48px;
               height: 48px;
               overflow: hidden;
-              background-image: url(https://starro-gmarket-mobile-dev.gmarket.co.kr/images/single/best/gds-trophy-fill.svg);
+              background-image: url(//script.gmarket.co.kr/starro/mobile/images/single/best/gds-trophy-fill.svg);
               background-size: 100% 100%;
               text-indent: -9999px;
             }
           }
-          
+
         }
       }
     }

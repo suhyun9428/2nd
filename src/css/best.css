@@ -3,7 +3,8 @@
   max-width: 1280px;
   margin: 0 auto;
   padding-top: 40px;
-  .text__title{
+
+  .text__title {
     display: inline-block;
     font-size: 28px;
     font-weight: 400;
@@ -12,7 +13,8 @@
     color: var(--Black);
     vertical-align: top;
   }
-  .box__info{
+
+  .box__info {
     .text__title {
       max-height: 44px;
       margin-bottom: 4px;
@@ -28,9 +30,11 @@
     }
   }
 }
+
 .box__items-wrap {
   min-width: 1200px;
   margin: 40px auto 0;
+
   .list__items {
     display: flex;
     flex-wrap: wrap;
@@ -49,12 +53,14 @@
     }
   }
 }
-.page__mobile{
-  &.box__contents-best{
+
+.page__mobile {
+  &.box__contents-best {
     max-width: none;
     padding-top: 0;
   }
-  .box__header-inner{
+
+  .box__header-inner {
     position: fixed;
     top: 0;
     left: 0;
@@ -64,12 +70,14 @@
     background-color: #fff;
     border-bottom: 1px solid #f5f5f5;
     z-index: 999;
-    .box__header-content{
+
+    .box__header-content {
       position: relative;
       max-width: 768px;
       margin: 0 auto;
     }
-    .button__back{
+
+    .button__back {
       display: inline-block;
       position: absolute;
       left: 0;
@@ -84,14 +92,16 @@
       background-size: 290px 256px;
       -webkit-background-size: 290px 256px;
     }
-    .box__header-title{
+
+    .box__header-title {
       display: flex;
       height: 48px;
       -webkit-justify-content: center;
       justify-content: center;
       -webkit-align-items: center;
       align-items: center;
-      .text{
+
+      .text {
         display: block;
         font-size: 18px;
         font-weight: 500;
@@ -103,13 +113,15 @@
         overflow: hidden;
       }
     }
-    .box__header-menu{
+
+    .box__header-menu {
       position: absolute;
       right: 0;
       top: 0;
       height: 48px;
       font-size: 0;
-      .link__cart{
+
+      .link__cart {
         position: relative;
         display: inline-block;
         width: 48px;
@@ -122,14 +134,16 @@
         background-position: -158px -100px;
         -webkit-background-position: -158px -100px;
         vertical-align: top;
-        .box__cart-count{
+
+        .box__cart-count {
           display: block;
           position: absolute;
           right: 5px;
           top: 8px;
           width: 16px;
           height: 16px;
-          .text{
+
+          .text {
             position: absolute;
             left: 50%;
             top: 0;
@@ -150,37 +164,43 @@
             text-align: center;
             background-color: #0028ac;
             z-index: 1;
-            color:#ffffff;
+            color: #ffffff;
           }
         }
       }
     }
   }
-  .box__items-wrap{
+
+  .box__items-wrap {
     min-width: auto;
     max-width: 768px;
     margin: 0 auto;
     padding: 0 16px;
-    .list__items{
+
+    .list__items {
       width: 100%;
       max-width: 736px;
       gap: 0;
-      .list-item{
+
+      .list-item {
         width: calc(25% - 8px);
         margin: 0 4px 8px 4px;
         box-sizing: border-box;
-        .box__image{
+
+        .box__image {
           width: 100%;
           height: 100%;
         }
       }
     }
   }
-  .box__container{
+
+  .box__container {
     width: 100%;
-    margin-top: 91px;
+    /* margin-top: 91px; */
     border-top: 8px solid var(--Gray-200);
-    .box__search-result-container{
+
+    .box__search-result-container {
       position: relative;
       width: 100%;
       max-width: 768px;
@@ -188,7 +208,8 @@
       padding: 10px 16px 0;
       text-align: left;
       box-sizing: border-box;
-      .text__date{
+
+      .text__date {
         position: relative;
         display: inline-block;
         font-size: 12px;
@@ -197,7 +218,8 @@
         line-height: 20px;
         vertical-align: top;
       }
-      .button__info{
+
+      .button__info {
         position: absolute;
         top: calc(50% - 8px);
         right: -18px;
@@ -206,11 +228,12 @@
         height: 16px;
         margin-left: 2px;
         border: 0;
-        background: url(//starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#gds-info-fill);
+        background: url(//script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#gds-info-fill);
         background-size: 100% 100%;
         box-sizing: border-box;
       }
-      .box__tooltip-layer{
+
+      .box__tooltip-layer {
         display: none;
         position: absolute;
         top: 36px;
@@ -221,32 +244,37 @@
         border: 1px solid var(--Gray-900);
         background: var(--White);
         z-index: 20;
-        .button__close{
+
+        .button__close {
           width: 24px;
           height: 24px;
           position: absolute;
           top: 14px;
           right: 16px;
           border: 0;
-          background: url(//starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#gds-24-close);
+          background: url(//script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#gds-24-close);
           background-size: 100% 100%;
         }
-        .text__title{
+
+        .text__title {
           margin-bottom: 10px;
           font-size: 14px;
           font-weight: 900;
           color: var(--Gray-900);
           line-height: 20px;
         }
-        .list__text{
+
+        .list__text {
           list-style: none;
-          .list-item{
+
+          .list-item {
             padding-left: 10px;
             font-size: 14px;
             color: var(--Gray-900);
             line-height: 20px;
             text-indent: -10px;
-            &::before{
+
+            &::before {
               content: "";
               display: inline-block;
               width: 2px;
@@ -257,12 +285,14 @@
             }
           }
         }
-        &.box__tooltip-layer--active{
+
+        &.box__tooltip-layer--active {
           display: block;
         }
       }
-      .box__sorting{
-        .button__sorting{
+
+      .box__sorting {
+        .button__sorting {
           display: block;
           position: absolute;
           top: 10px;
@@ -274,29 +304,33 @@
           border: 0;
           background: transparent;
           box-sizing: border-box;
-          .text{
+
+          .text {
             vertical-align: top;
           }
-          &::before{
+
+          &::before {
             content: "";
             display: inline-block;
             width: 16px;
             height: 16px;
             margin: 2px 0;
-            background: url(//starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#gds-sort-desc);
+            background: url(//script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#gds-sort-desc);
             background-size: 100% 100%;
           }
-          &::after{
+
+          &::after {
             content: "";
             display: inline-block;
             width: 16px;
             height: 16px;
             margin: 2px 0;
-            background-image: url(//starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#gds-chevron-down);
+            background-image: url(//script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#gds-chevron-down);
             background-size: 100% 100%;
           }
         }
-        .box__sorting-option{
+
+        .box__sorting-option {
           width: 100%;
           height: 100%;
           position: fixed;
@@ -304,7 +338,8 @@
           left: 0;
           z-index: 999;
           visibility: hidden;
-          .box__option-content{
+
+          .box__option-content {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -313,7 +348,8 @@
             background: var(--White);
             transition: all .3s;
             transform: translateY(100%);
-            .text__title{
+
+            .text__title {
               display: block;
               border-bottom: 1px solid var(--Gray-200);
               font-size: 18px;
@@ -322,7 +358,8 @@
               line-height: 48px;
               text-align: center;
             }
-            .button__close{
+
+            .button__close {
               width: 48px;
               height: 48px;
               position: absolute;
@@ -330,29 +367,34 @@
               right: 0;
               border: 0;
               background: transparent;
-              &::before{
+
+              &::before {
                 content: "";
                 display: block;
                 width: 32px;
                 height: 32px;
-                background-image: url(https://starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#icon__layer-close);
+                background-image: url(//script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#icon__layer-close);
                 background-size: 100% 100%;
                 vertical-align: top;
               }
             }
-            .list__sorting-option{
+
+            .list__sorting-option {
               padding: 0 16px 20px;
               list-style: none;
-              .list-item{
+
+              .list-item {
                 position: relative;
                 padding: 14px 0;
                 font-size: 16px;
                 color: #2c2c2c;
                 line-height: 20px;
-                &:not(:last-child){
+
+                &:not(:last-child) {
                   border-bottom: 1px solid var(--Gray-200);
                 }
-                .button__radio{
+
+                .button__radio {
                   width: 100%;
                   height: 48px;
                   position: absolute;
@@ -360,7 +402,8 @@
                   left: 0;
                   border: 0;
                   background: transparent;
-                  &::before{
+
+                  &::before {
                     content: "";
                     border-radius: 50%;
                     border: 1px solid var(--Gray-400);
@@ -374,10 +417,11 @@
 
                   }
                 }
-                &.list-item--active{
-                  .button__radio{
-                    &::before{
-                      background: url(https://starro-gmarket-mobile-dev.gmarket.co.kr/images/sprite/best/sprite.svg#icon__check-radio);
+
+                &.list-item--active {
+                  .button__radio {
+                    &::before {
+                      background: url(//script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#icon__check-radio);
                       background-size: 100% 100%;
                       border: 0;
                     }
@@ -386,7 +430,8 @@
               }
             }
           }
-          .box__dimmed{
+
+          .box__dimmed {
             position: absolute;
             top: 0;
             left: 0;
@@ -395,9 +440,11 @@
             height: 100%;
             background: rgba(var(--Black-RGB), .4);
           }
-          &.box_sorting-option--active{
+
+          &.box_sorting-option--active {
             visibility: visible;
-            .box__option-content{
+
+            .box__option-content {
               transform: translateY(0);
               z-index: 1;
             }
@@ -408,11 +455,11 @@
   }
 }
 
-@media (max-width: 768px){
-  .page__mobile{
-    .box__items-wrap{
-      .list__items{
-        .list-item{
+@media (max-width: 768px) {
+  .page__mobile {
+    .box__items-wrap {
+      .list__items {
+        .list-item {
           width: calc(50% - 8px);
         }
       }
@@ -426,20 +473,24 @@
   margin: 0 auto;
   padding: 20px 0 30px;
   border-bottom: 1px solid #eee;
-  .swiper{
+
+  .swiper {
     &.list__category {
       max-width: 1136px;
       margin: 0 auto;
     }
   }
+
   .list-item {
     width: auto;
     margin-right: 21px;
+
     .link__category {
       display: block;
       width: 68px;
       text-align: center;
       text-decoration: none;
+
       .box__image {
         display: block;
         position: relative;
@@ -447,13 +498,15 @@
         height: 68px;
         border-radius: 50%;
         overflow: hidden;
+
         .image {
           width: 100%;
           height: 100%;
           object-fit: cover;
         }
-        
+
       }
+
       .text__title {
         display: block;
         margin-top: 12px;
@@ -463,10 +516,11 @@
         white-space: nowrap;
       }
     }
-    &.list-item--active{
-      .link__category{
-        .box__image{
-          &::after{
+
+    &.list-item--active {
+      .link__category {
+        .box__image {
+          &::after {
             content: "";
             position: absolute;
             top: 0;
@@ -478,79 +532,129 @@
             box-sizing: border-box;
           }
         }
-        .text__title{
+
+        .text__title {
           font-weight: 700;
           color: var(--Green-500) !important;
         }
       }
     }
-    &:last-child{
+
+    &:last-child {
       margin-right: 0;
     }
   }
+
   .swiper-button-prev,
-  .swiper-button-next{
+  .swiper-button-next {
     width: 32px;
     height: 32px;
     margin-top: 0;
     top: 38px;
     border: 0;
-    &:hover{
-      filter:invert(57%)sepia(44%)saturate(6501%)hue-rotate(88deg)brightness(104%)contrast(112%)
+
+    &:hover {
+      filter: invert(57%)sepia(44%)saturate(6501%)hue-rotate(88deg)brightness(104%)contrast(112%)
     }
   }
+
   .swiper-button-prev {
     left: 0;
     right: auto;
-    background: transparent url(https://script.gmarket.co.kr/starro/desktop/images/sprite/best/sprite.svg#icon__swiper-arrow);
+    background: transparent url(//script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#icon__swiper-arrow);
     background-size: 100% 100%;
     transform: rotate(180deg);
+
     &::after {
       content: none;
     }
-    &.swiper-button-disabled{
+
+    &.swiper-button-disabled {
       display: none;
     }
   }
+
   .swiper-button-next {
     right: 0;
-    background: transparent url(https://script.gmarket.co.kr/starro/desktop/images/sprite/best/sprite.svg#icon__swiper-arrow);
+    background: transparent url(//script.gmarket.co.kr/starro/mobile/images/sprite/best/sprite.svg#icon__swiper-arrow);
     background-size: 100% 100%;
+
     &::after {
       content: none;
     }
-    &.swiper-button-disabled{
+
+    &.swiper-button-disabled {
       display: none;
     }
   }
 }
-.page__mobile{
-  .box__category-swiper{
-    position: fixed;
-    top:49px;
+
+.list__subcategory {
+  min-height: 61px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #eee;
+  padding: 18px 0 21px;
+  border-top: 1px solid #eee;
+  max-width: var(--maxWidth);
+  white-space: nowrap;
+  margin: 0 auto;
+  position: relative;
+  overflow-x: auto;
+  font-size: 0;
+  box-sizing: border-box;
+
+  .list-item {
+    display: inline-block;
+    margin: 0 8px;
+
+    .link {
+      font-family: var(--Font);
+      color: var(--Gray-700);
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+}
+
+.text__noitmes {
+  display: block;
+  padding: 50px 0;
+  font-size: 20px;
+}
+
+.page__mobile {
+  .box__category-swiper {
+    position: relative;
+    /* position: fixed; */
+    /* top: 49px; */
     width: 100%;
     padding: 0;
     background: var(--white);
     border-bottom: 1px solid var(--Gray-300);
     z-index: 999;
-    .swiper{
+
+    .swiper {
       max-width: 768px;
       padding: 12px 6px 5px;
-      &.list__category{
-        .swiper-wrapper{
-          .list-item{
+
+      &.list__category {
+        .swiper-wrapper {
+          .list-item {
             width: 62px;
             position: relative;
             margin-left: 2px;
             margin-right: 0;
-            .link__category{
+
+            .link__category {
               width: auto;
-              .box__image{
+
+              .box__image {
                 width: 44px;
                 height: 44px;
                 margin: 0 auto 2px;
               }
-              .text__title{
+
+              .text__title {
                 display: inline;
                 font-size: 12px;
                 font-family: var(--Font);
@@ -562,9 +666,35 @@
         }
       }
     }
+
     .swiper-button-prev,
-    .swiper-button-next{
+    .swiper-button-next {
       display: none;
     }
+  }
+
+  .list__subcategory {
+    min-height: auto;
+    background: var(--White);
+    padding: 9px 8px 11px;
+    text-align: left;
+
+    .list-item {
+      display: inline-block;
+      margin: 0 8px;
+
+      .link {
+        font-family: var(--Font);
+        color: var(--Gray-700);
+        font-size: 13px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .text__noitmes {
+    display: block;
+    padding: 50px 0;
+    font-size: 20px;
   }
 }
